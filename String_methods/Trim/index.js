@@ -17,12 +17,3 @@ function trimMethod(string) {
 }
 
 trimMethod('      1213 123  ');
-
-
-
-
-
-// function trimMethod(string) {
-//     return string.replace(/^\s+|\s+$/gm,'');
-// }
-// trimMethod('      1213 123  ');
