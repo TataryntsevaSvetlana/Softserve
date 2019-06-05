@@ -1,44 +1,77 @@
-describe("nacci", () => {
-    it("передаём пустой паттерн", () => {
-        assert.deepEqual(nacci([], 10), []);
+describe("NumC", () => {
+
+    it("toData - строку переводит в число, меняет запятые на точку", () => {
+        assert.strictEqual(NumC.toData('25,698'), 25.698);
     });
 
-    it("передаём число равное 0", () => {
-        assert.deepEqual(nacci(['fib'], 0), []);
+    it("toData - убирает пробелы и точки в строке и возвращает число", () => {
+        assert.strictEqual(NumC.toData('          2.   5,6   98'), 25.698);
     });
 
-    it("вывести 10 чисел fibonacci", () => {
-        assert.deepEqual(nacci(['fib'], 10), [0, 1, 1, 2, 3, 5, 8, 13, 21, 34]);
+    it("toData - убирает неразрывный пробел в строке и возвращает число", () => {
+        assert.strictEqual(NumC.toData('25,&nbsp;698'), 25.698);
     });
 
-    it("вывести 10 чисел padovan", () => {
-        assert.deepEqual(nacci(['pad'], 10), [1, 0, 0, 1, 0, 1, 1, 1, 2, 2]);
+    it("toData - принимает строку и возвращает тип данных число", () => {
+        assert.typeOf(NumC.toData('string'), 'number');
     });
 
-    it("вывести 10 чисел jacobstahl", () => {
-        assert.deepEqual(nacci(['jac'], 10), [0, 1, 1, 3, 5, 11, 21, 43, 85, 171]);
+    it("toData - принимает число с точкой и возвращает число без точки", () => {
+        assert.equal(NumC.toData(25.698), 25698);
     });
 
-    it("вывести 10 чисел pell", () => {
-        assert.deepEqual(nacci(['pel'], 10), [0, 1, 2, 5, 12, 29, 70, 169, 408, 985]);
+    it("convertToBuh - если передаёшь число без дробной части, то добавляется запятая и 3 символа ", () => {
+        assert.equal(NumC.convertToBuh(25, 0, 'hrn'), "25,000 hrn");
     });
 
-    it("вывести 10 чисел tribonacci", () => {
-        assert.deepEqual(nacci(['tri'], 10), [0, 0, 1, 1, 2, 4, 7, 13, 24, 44]);
+    it("convertToBuh - если передаёшь число с дробной частью больше переданного значения decimals, то округляется до decimals символов ", () => {
+        assert.equal(NumC.convertToBuh(234.4565424524, 5, 'hrn'), "234,45654 hrn");
     });
 
-    it("вывести 10 чисел tetranacci", () => {
-        assert.deepEqual(nacci(['tet'], 10), [0, 0, 0, 1, 1, 2, 4, 8, 15, 29]);
+    it("convertToBuh - если не задана валюта ,то возвращает строку", () => {
+        assert.equal(NumC.convertToBuh(234.4565424524, 5, 'hrn'), "234,45654 hrn");
     });
 
-    it("вывести 10 чисел fibonacci, tetranacci", () => {
-        assert.deepEqual(nacci(['fib', 'tet'], 10), [0, 0, 1, 0, 1, 0, 2, 1, 3, 1]);
+    it("isNumeric - если передаёшь num как NaN возвращает false", () => {
+        assert.equal(NumC.isNumeric(NaN), false);
+    });
+    it("isNumeric - если передаёшь num как число возвращает true", () => {
+        assert.equal(NumC.isNumeric(895.36), true);
     });
 
-    it("вывести 10 чисел jacobstahl, jacobstahl, pell", () => {
-        assert.deepEqual(nacci(['jac', 'jac', 'pel'], 10), [0, 1, 0, 1, 3, 1, 5, 11, 2, 21]);
+    it("toBuh - если передаёшь num как число, то возвращает строку с валютой ", () => {
+        assert.equal(NumC.toBuh(234.4565424524, 5, 'hrn'), "234,45654 hrn");
     });
-    it("если длина паттерна больше числа, повторить паттерн", () => {
-        assert.deepEqual(nacci(['jac', 'jac', 'pel'], 2), [0, 1]);
+
+    it("toBuh - если передаёшь num как не число, то возвращает значение как есть ", () => {
+        assert.equal(NumC.toBuh('fjfgbfk', 5, 'hrn'), 'fjfgbfk');
     });
+
+    it("getFALDates  sadsadsad", () => {
+        const testClassName = 'testClassName';
+
+        const firstDateElContainer = document.createElement('div');
+        const lastDateElContainer = document.createElement('div');
+        const firstDateEl =  document.createElement('div');
+        const lastDateEl =  document.createElement('div');
+
+        firstDateEl.className = testClassName;
+        lastDateEl.className = testClassName;
+        firstDateEl.innerText = '1';
+        lastDateEl.innerText = '2';
+
+        firstDateElContainer.appendChild(firstDateEl);
+        lastDateElContainer.appendChild(lastDateEl);
+
+        assert.deepEqual(NumC.getFALDates([firstDateElContainer, lastDateElContainer], `.testClassName`), {last: "2001-01-01", first: "2001-02-01"});
+
+    });
+
+
+
+
+
+
 });
+
+
