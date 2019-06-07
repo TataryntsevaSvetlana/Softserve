@@ -13,3 +13,5 @@
 1. [Destroy_code](https://tataryntsevasvetlana.github.io/Softserve/Destroy_code/index.html)
 1. [Plus_minus](https://tataryntsevasvetlana.github.io/Softserve/Plus_minus/index.html)
 1. [NASA_spatial_mission](https://tataryntsevasvetlana.github.io/Softserve/NASA_spatial_mission/index.html)
+1. [Quipu_Calculator](https://tataryntsevasvetlana.github.io/Softserve/Quipu_Calculator/index.html)
+
