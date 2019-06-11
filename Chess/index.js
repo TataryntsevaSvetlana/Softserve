@@ -22,6 +22,7 @@ function isValidValues(width, height, symbol) {
 }
 
 function showChessBoard(width = 5, height = 7, char = '*') {
+
     if (isValidValues(width, height, char)) {
         let board = '\n';
 
@@ -42,7 +43,7 @@ function showChessBoard(width = 5, height = 7, char = '*') {
         }
         return board;
     } else {
-        return 0;
+        return { status: 'failed', reason: 'wrong input values' };
     }
 }
 
