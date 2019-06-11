@@ -14,31 +14,38 @@
 }
 */
 
+function getIsValidTriangle(a, b, c) {
+    return (a + b > c) && (a + c > b) && (b + c > a);
+}
+
 function isValidValues(triangles){
     const isArray = Array.isArray(triangles);
-    const isArrayLength = triangles.length;
+    const hasLength = triangles.length !== 0;
+
     const isArrayValuesValid =  triangles
         .every(({ vertices, ...obj}) => {
-        return Object.values(obj).every(value => typeof value === 'number');
-    });
-    return isArray && isArrayLength && isArrayValuesValid;
+            const valuesOfTops = Object.values(obj);
+
+            const isValidTops = valuesOfTops.every(value => typeof value === 'number' && value > 0);
+            const isValidVertices = typeof vertices === 'string' && vertices.length === 3;
+
+            const sortedVertices = vertices.toLowerCase().split('').sort().join('');
+            const sortedTopNames = Object.keys(obj).sort().join('').toLowerCase();
+            const matchNames = sortedVertices === sortedTopNames;
+
+            return isValidTops && isValidVertices && getIsValidTriangle(...valuesOfTops) && matchNames;
+        });
+
+    return isArray && hasLength && isArrayValuesValid;
 }
 
 
 function calculateAreasOfTriangles({vertices, ...trianglesTops}){
-    let result;
-    let [a, b, c] = Object.values(trianglesTops);
+    const [a, b, c] = Object.values(trianglesTops);
+    const p = ((a + b + c) / 2);
+    const triangleArea = Math.sqrt(p * (p - a) * (p - b) * (p - c));
 
-    if ((a + b > c) && (a + c > b) && (b + c > a)) {
-        const p = ((a + b + c) / 2);
-        const triangleArea = Math.sqrt(p * (p - a) * (p - b) * (p - c));
-
-        result = {vertices, ...trianglesTops, triangleArea};
-    } else {
-        result = {status: 'failed', reason: 'a triangle does not exist'};
-    }
-
-   return result;
+    return {vertices, ...trianglesTops, triangleArea};
 }
 
 
@@ -63,8 +70,8 @@ function showTriangles(triangles) {
 }
 
 console.log(showTriangles([
-    {vertices: 'ABC', a: 60,  b: 35, c: 27.36},
-    {vertices: 'DEF', d: 30, e: 40, f: 16.7},
+    {vertices: 'ABC', a: 60, b: 35, c: 27.36},
+    {vertices: 'DEF', d: 30, e: 'sveta', f: 16.7},
     {vertices: 'GHI', g: 24.8, h: 15, i: 35},
     {vertices: 'KLM', k: 7, l: 3.5, m: 18}
 ]));

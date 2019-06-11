@@ -1,5 +1,12 @@
 # Tasks
 
+1. [Chess](https://tataryntsevasvetlana.github.io/Softserve/Chess/index.html)
+1. [Envelope](https://tataryntsevasvetlana.github.io/Softserve/Envelope/index.html)
+1. [Fibonacci](https://tataryntsevasvetlana.github.io/Softserve/Fibonacci/index.html)
+1. [Palindrome](https://tataryntsevasvetlana.github.io/Softserve/Palindrome/index.html)
+1. [Sequence](https://tataryntsevasvetlana.github.io/Softserve/Sequence/index.html)
+1. [Tickets](https://tataryntsevasvetlana.github.io/Softserve/Tickets/index.html)
+1. [Triangles](https://tataryntsevasvetlana.github.io/Softserve/Triangles/index.html)
 1. [Ball game](https://tataryntsevasvetlana.github.io/Softserve/Ball_game/index.html)
 1. [Binary  number](https://tataryntsevasvetlana.github.io/Softserve/Binary_representation_of_a_number/index.html)
 1. [Tic-tac-toe](https://tataryntsevasvetlana.github.io/Softserve/Tic-Tac-Toe_Checker/index.html)

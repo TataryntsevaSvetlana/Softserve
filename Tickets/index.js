@@ -9,78 +9,77 @@
 
 
 */
-const context = {
-    min: 000000,
-    max: 999999
-};
 
-// const winner = {
-//     winner,
-//     simple,
-//     complicated
-// }
+function isValidInput(obj) {
+    const isObject = obj && obj.constructor === Object;
+    const { min, max } = obj;
+    const validValues = isFinite(min) && isFinite(max) && min < max && min > 0;
+
+    return isObject && validValues;
+}
+
 function sumValue(arr) {
     return arr.reduce((acc, curr) => acc + Number(curr), 0);
 }
 
-function simpleCounting(arr, number) {
+function simpleCounting(arr) {
     let sum1 = [];
     let sum2 = [];
-    let result = 0;
 
     arr.forEach((el, i) => {
-        (i < number / 2) ? sum1.push(el) : sum2.push(el);
+        (i < arr.length / 2) ? sum1.push(el) : sum2.push(el);
     });
-    // let left = Math.floor(min / 1000);
-    // let right = min % 1000;
 
-    (sumValue(sum1) === sumValue(sum2)) ? result += 1 : result;
-    return result;
+    return (sumValue(sum1) === sumValue(sum2)) ? 1 : 0;
 }
 
 function complicatedCounting(arr) {
     let evenNumbersSum = [];
     let oddNumbersSum = [];
-    let result = 0;
 
     arr.forEach(el => {
         (el % 2 === 0) ? evenNumbersSum.push(el) : oddNumbersSum.push(el);
     });
 
-    (sumValue(evenNumbersSum) === sumValue(oddNumbersSum)) ? result += 1 : result;
-    return result;
+    return (sumValue(evenNumbersSum) === sumValue(oddNumbersSum)) ? 1 : 0;
 }
 
 
-function getWinner(obj) {
-    const NUMBERLENGTH_TICKET = 6;
-    let simpleCounter = 0;
-    let complicatedCounter = 0;
-    let winner;
+function getWinner(context) {
+    if (isValidInput(context)) {
+        const NUMBER_LENGTH_TICKET = 6;
+        let simpleCounter = 0;
+        let complicatedCounter = 0;
 
+        for (let i = context.min; i <= context.max; i++) {
+            let ticket = String(i);
+            if (ticket.length < NUMBER_LENGTH_TICKET) {
+                ticket = ticket.padStart(NUMBER_LENGTH_TICKET, "0");
+            }
 
-    for (let i = obj.min; i <= obj.max; i++) {
-
-        let str = String(i);
-        if (str.length < NUMBERLENGTH_TICKET) {
-            str = str.padStart(NUMBERLENGTH_TICKET, "0");
+            let ticketNumbers = ticket.split('');
+            simpleCounter += simpleCounting(ticketNumbers);
+            complicatedCounter += complicatedCounting(ticketNumbers);
         }
 
-        let arr = str.split('');
-        simpleCounter += simpleCounting(arr, NUMBERLENGTH_TICKET);
-        complicatedCounter += complicatedCounting(arr);
+        const winner = (simpleCounter > complicatedCounter) ? 'simple method' : 'simple method';
 
+        return {
+            winner,
+            simple: simpleCounter,
+            complicated: complicatedCounter
+        };
     }
 
-    (simpleCounter > complicatedCounter) ? winner = 'simple method' : winner = 'simple method';
-    console.log(simpleCounter);
-    console.log(complicatedCounter);
-    return winner;
+    return { status: 'failed', reason: 'wrong input values' };
 }
 
-getWinner(context);
+const context = {
+    min:  1,
+    max: 111111
+};
 
-
+console.log(getWinner(context));
 
 
 

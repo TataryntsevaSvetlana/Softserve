@@ -9,6 +9,10 @@
 
 */
 
+function isValidNumber(num) {
+    return Number.isInteger(num) && num > 0 && String(num).length <= 16;
+}
+
 function isPalindrome(inputNumber) {
     let reversed = String(inputNumber).split('').reverse().join('');
 
@@ -16,29 +20,33 @@ function isPalindrome(inputNumber) {
 }
 
 function getPalindrome(inputNumber) {
-    const results = [0];
+    let results = [0];
 
-    if (!isPalindrome(inputNumber)) {
-        const string = String(inputNumber);
-        const symbolsQuantity = string.length;
+    if (isValidNumber(Number(inputNumber))) {
+        if (!isPalindrome(inputNumber)) {
+            const string = String(inputNumber);
+            const symbolsQuantity = string.length;
 
-        for (let i = 0; i < symbolsQuantity; i++) {
-            for (let k = 0; k < symbolsQuantity; k++) {
-                const numberFromStart = string.slice(i, symbolsQuantity - k);
-                const numberFromEnd = string.slice(k, symbolsQuantity - 1);
+            for (let i = 0; i < symbolsQuantity; i++) {
+                for (let k = 0; k < symbolsQuantity; k++) {
+                    const numberFromStart = string.slice(i, symbolsQuantity - k);
+                    const numberFromEnd = string.slice(k, symbolsQuantity - 1);
 
-                if (isPalindrome(numberFromEnd)) {
-                    results.push(Number(numberFromEnd));
-                }
+                    if (isPalindrome(numberFromEnd)) {
+                        results.push(Number(numberFromEnd));
+                    }
 
-                if (isPalindrome(numberFromStart)) {
-                    results.push(Number(numberFromStart));
+                    if (isPalindrome(numberFromStart)) {
+                        results.push(Number(numberFromStart));
+                    }
                 }
             }
+        } else {
+            results.push(Number(inputNumber));
         }
-    } else {
-        results.push(Number(inputNumber));
-    }
+        return Math.max(...results);
 
-    return Math.max(...results);
+    } else {
+        return { status: 'failed', reason: 'wrong input values' };
+    }
 }
