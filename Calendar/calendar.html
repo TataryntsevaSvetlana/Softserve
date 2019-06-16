@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/mocha/2.1.0/mocha.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mocha/2.1.0/mocha.js"></script>
+    <script>
+        mocha.setup('bdd');
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/chai/2.0.0/chai.js"></script>
+    <script>
+        var assert = chai.assert;
+    </script> -->
+
+    <!-- <script src="test.js"></script> -->
+    <script src="https://kit.fontawesome.com/68bc11bf31.js"></script>
+    <link rel="stylesheet" href="css/calendar.css">
+    <title>Calendar</title>
+</head>
+<body>
+
+<div class="calendar" id='calendar'>
+    <div class="header">
+        <div class="clock" id='clock'></div>
+        <div class="date" id='currentDate'></div>
+    </div>
+    <div class="main">
+        <div class="switchSection">
+            <div class="month" id='currentMonth'></div>
+            <div class="switchButton">
+                <button class="button button-left">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <button class="button button-right">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+                <button class="button button-up">
+                    <i class="fas fa-chevron-up"></i>
+                </button>
+                <button class="button button-down">
+                    <i class="fas fa-chevron-down"></i>
+                </button>
+            </div>
+        </div>
+        <div class="dateName">
+            <div class="dateName__day">Пн</div>
+            <div class="dateName__day">Вт</div>
+            <div class="dateName__day">Ср</div>
+            <div class="dateName__day">Чт</div>
+            <div class="dateName__day">Пт</div>
+            <div class="dateName__day">Сб</div>
+            <div class="dateName__day">Вс</div>
+        </div>
+    </div>
+</div>
+
+<script async src="index.js"></script>
+<!-- 
+    <div id="mocha"></div>
+        <script>
+            mocha.run();
+        </script> -->
+</body>
+</html>
