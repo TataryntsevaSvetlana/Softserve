@@ -1,5 +1,6 @@
 const currentMonth = new Date();
-let activeDay = new Date();
+currentMonth.setDate(1);
+const activeDay = new Date();
 
 const today = new Date();
 today.setHours(0);
@@ -17,58 +18,63 @@ function init() {
     const firstDayCurrentMonth = new Date(today.getFullYear(), today.getMonth(), 1);
     renderClock();
     renderCurrentDate(dd, mm, yyyy);
-    renderCalendar(firstDayCurrentMonth, today);
+    renderCalendar(firstDayCurrentMonth);
     calendar.addEventListener('click', onCalendarClick);
 }
 
 function onCalendarClick(event) {
     if (event.target.classList.contains('button-left')) {
-        if (document.querySelector('.activeDay').previousSibling === null ){
-            const firstDayPrevMonth = new Date(currentMonth.getFullYear(), currentMonth.getMonth() - 1, 1);
+        activeDay.setDate(activeDay.getDate() - 1);
+        if (document.querySelector('.activeDay').previousSibling === null){
             currentMonth.setMonth(currentMonth.getMonth() - 1);
-            renderCalendar(firstDayPrevMonth,  activeDay);
+            const firstDayPrevMonth = new Date(currentMonth.getFullYear(), currentMonth.getMonth(), 1);
+
+            renderCalendar(firstDayPrevMonth);
+        } else {
+            selectDay('prev');
         }
-        selectDay('prev');
     }
     if (event.target.classList.contains('button-right')) {
-        if ( document.querySelector('.activeDay').nextSibling === null ){
-            const firstDayNextMonth = new Date(currentMonth.getFullYear(), currentMonth.getMonth() + 1, 1);
+        activeDay.setDate(activeDay.getDate() + 1);
+        if (document.querySelector('.activeDay').nextSibling === null ){
             currentMonth.setMonth(currentMonth.getMonth() + 1);
-            renderCalendar(firstDayNextMonth, activeDay);
+            const firstDayNextMonth = new Date(currentMonth.getFullYear(), currentMonth.getMonth(), 1);
+
+            renderCalendar(firstDayNextMonth);
+        } else {
+            selectDay('next');
         }
-        selectDay('next');
     }
     if (event.target.classList.contains('button-up')) {
         const firstDayPrevMonth = new Date(currentMonth.getFullYear(), currentMonth.getMonth() - 1, 1);
         currentMonth.setMonth(currentMonth.getMonth() - 1);
-        renderCalendar(firstDayPrevMonth, firstDayPrevMonth);
+        activeDay.setMonth(currentMonth.getMonth() - 1);
+        activeDay.setDate(1);
+        renderCalendar(firstDayPrevMonth);
     }
     if (event.target.classList.contains('button-down')) {
         const firstDayNextMonth = new Date(currentMonth.getFullYear(), currentMonth.getMonth() + 1, 1);
         currentMonth.setMonth(currentMonth.getMonth() + 1);
-        renderCalendar(firstDayNextMonth, firstDayNextMonth);
+        activeDay.setMonth(currentMonth.getMonth() + 1);
+        activeDay.setDate(1);
+
+        renderCalendar(firstDayNextMonth);
     }
 }
 
 function selectDay(position) {
-    const currentActiveDay = document.querySelector('.activeDay');
+    const currentActiveDayEl = document.querySelector('.activeDay');
     let day;
 
     if (position === 'next') {
-        day = currentActiveDay.nextElementSibling;
-        activeDay.setDate(activeDay.getDate() + 1);
-        // console.log('activeDay', activeDay);
+        day = currentActiveDayEl.nextElementSibling;
     } else {
-        day = currentActiveDay.previousSibling;
-        activeDay.setDate(activeDay.getDate() - 1);
-        // console.log('activeDay', activeDay);
+        day = currentActiveDayEl.previousSibling;
     }
 
     document.querySelector('.activeDay').classList.remove('activeDay');
     day.classList.add('activeDay');
-
 }
-
 
 function renderClock() {
     const clockEl = document.getElementById('clock');
@@ -95,7 +101,7 @@ function renderCurrentDate(dd, mm, yyyy) {
     currentDateEl.innerHTML = `${dd} ${mm} ${yyyy} г.`;
 }
 
-function renderCalendar(firstDayOfMonth, selectedDay) {
+function renderCalendar(firstDayOfMonth) {
     const QUANTITY_OF_CELLS_WITH_DATES_IN_CALENDAR = 42;
 
     let dayInWeekNumber = firstDayOfMonth.getDay();
@@ -105,10 +111,12 @@ function renderCalendar(firstDayOfMonth, selectedDay) {
         dayInWeekNumber -= 1;
     }
 
-    const div = document.createElement('div');
-    div.classList.add('calendarBox');
+    const calendarBox = document.createElement('div');
+    calendarBox.classList.add('calendarBox');
+
     for (let i = 0; i < QUANTITY_OF_CELLS_WITH_DATES_IN_CALENDAR; i++) {
         const currentCellDate = new Date(firstDayOfMonth); // 1 июня
+
         currentCellDate.setDate(firstDayOfMonth.getDate() - dayInWeekNumber + i); // 27 мая
         const currentCell = document.createElement('div'); // создали див
 
@@ -118,7 +126,7 @@ function renderCalendar(firstDayOfMonth, selectedDay) {
         if (currentCellDate.getMonth() === firstDayOfMonth.getMonth()) {
             currentCell.classList.add('activeMonth');
 
-            if (currentCellDate.getDate() === selectedDay.getDate()) {
+            if (currentCellDate.getDate() === activeDay.getDate()) {
                 currentCell.classList.add('activeDay');
             }
         }
@@ -131,14 +139,14 @@ function renderCalendar(firstDayOfMonth, selectedDay) {
             currentCell.classList.add('currentDay');
         }
 
-        div.appendChild(currentCell);
+        calendarBox.appendChild(currentCell);
     }
     const currentCalendar = document.querySelector('.calendarBox');
     if (currentCalendar) {
         currentCalendar.parentNode.removeChild(currentCalendar);
     }
 
-    document.querySelector('.main').appendChild(div);
+    document.querySelector('.main').appendChild(calendarBox);
     const yyyy = currentMonth.toLocaleString('ru', {year: 'numeric'});
     const mm = currentMonth.toLocaleString('ru', {month: 'long'});
     renderCurrentMonth(mm, yyyy);
