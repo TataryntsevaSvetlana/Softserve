@@ -9,29 +9,18 @@
 Входные параметры: длина, ширина, символ для отображения.
 Выход: строка с представлением шахматной доски
 */
-function isValidNumber(num) {
-    return Number.isInteger(num) && num > 0;
-}
 
-function isValidValues(width, height, symbol) {
-    const isWidthValid = isValidNumber(Number(width));
-    const isHeightValid = isValidNumber(Number(height));
-    const isValidSymbol = String(symbol).length === 1;
+function showChessBoard(width, height, char) {
+    const validationErrors = isValidValues(width, height, char);
+    let result;
 
-    return isWidthValid && isHeightValid && isValidSymbol;
-}
-
-function showChessBoard(width = 5, height = 7, char = '*') {
-
-    if (isValidValues(width, height, char)) {
+    if (validationErrors.length === 0) {
         let board = '\n';
 
         for (let currentRow = 0; currentRow < height; currentRow++) {
-
             if (currentRow % 2 === 0) {
                 board += ' ';
             }
-
             for (let currentCol = 0; currentCol < width; currentCol++) {
                 if (currentCol % 2 === 0) {
                     board += ' ';
@@ -41,13 +30,37 @@ function showChessBoard(width = 5, height = 7, char = '*') {
             }
             board += '\n';
         }
-        return board;
+        result = board;
     } else {
-        return { status: 'failed', reason: 'wrong input values' };
+        result = validationErrors;
     }
+
+    return result;
 }
 
-console.log(showChessBoard('5', 4, '*'));
+console.log(showChessBoard('10', 4, '*'));
+
+function isValidValues(width, height, symbol) {
+    const isWidthValid = Number.isFinite(width) || Number(width);
+    const isHeightValid = Number.isFinite(height) || Number(height);
+    const isValidSymbol = String(symbol).length === 1;
+    const validationErrors = [];
+
+    if (!isWidthValid){
+        validationErrors.push({ status: 'failed', reason: 'wrong input values - width'});
+    }
+    if (!isHeightValid){
+        validationErrors.push({ status: 'failed', reason: 'wrong input values - height'});
+    }
+    if (width <= 0 || height <= 0) {
+        validationErrors.push({ status: 'failed', reason: 'wrong input values - values must be more than 0'});
+    }
+    if (!isValidSymbol) {
+        validationErrors.push({ status: 'failed', reason: 'wrong input values - symbol' });
+    }
+
+    return validationErrors;
+}
 
 
 

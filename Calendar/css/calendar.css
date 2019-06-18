@@ -6,163 +6,90 @@
     font: normal 14px Geneva, Arial, Helvetica, sans-serif;
     cursor: default;
 }
-
-.header > div,
-.main > div {
-    margin-bottom: 10px;
+.calendar-current-date-section {
+    border-bottom: 1px solid lightgray;
 }
 
-.date {
-    margin-left: 10px;
+.calendar-current-date-section,
+.calendar-switch-section,
+.calendar-date-name-section,
+.calendar-box-section,
+.calendar-current-date-section__clock,
+.calendar-current-date-section__date {
+    padding: 10px;
+}
+
+.calendar-current-date-section__clock {
+    font-size: 30px;
+}
+
+.calendar-current-date-section__date {
     color: #0779e2;
 }
 
-.currentDay {
+.calendar_currentDay,
+.calendar_currentDay.calendar_activeDay {
     background: #0779e2;
 }
 
-.currentDay.activeDay {
-    background: #0779e2;
+.calendar_currentDay.calendar_activeDay {
     outline: 2px solid black;
     outline-offset: -5px;
 }
 
-
-.currentDayNotActive {
-    background: #0779e2;
-}
-
-.header {
-    border-bottom: 1px solid lightgray;
-}
-
-.main,
-.header {
-    padding: 10px;
-}
-
-.clock {
-    font: normal 30px Geneva, Arial, Helvetica, sans-serif;
-    padding-left: 10px;
-}
-
-.month {
+.calendar-switch-section__month{
     text-transform: capitalize;
     padding-left: 10px;
 }
 
-.switchSection,
-.dateName {
+.calendar-switch-section,
+.calendar-date-name-section {
     display: flex;
     flex-wrap: nowrap;
     align-items: center;
     justify-content: space-between;
 }
 
-.dateName__day,
-.day {
+.calendar-date-name-section__day,
+.calendar-box-section__day {
     width: 38px;
     height: 38px;
     margin: 1px;
     display: flex;
     justify-content: space-around;
     align-items: center;
-    /*outline: 1px solid red;*/
+
+}
+.calendar-date-name-section__day:hover,
+.calendar-box-section__day:hover {
+    background-color: lightgray;
 }
 
-.button {
+
+.calendar-switch-section-button-box__button{
     background-color: #3c3c3c;
     cursor: pointer;
     border: none;
-    /*outline: 1px solid red;*/
 }
 
-.fas {
+.calendar-switch-section-button-box__arrow {
     color: white;
     pointer-events: none
 }
 
-.calendarBox {
+.calendar-box-section {
     color: #7b7b7b;
     display: flex;
     flex-wrap: wrap;
+    justify-content: space-between;
 }
 
-.activeMonth {
+.calendar_activeMonth {
     color: white;
     font-weight: bolder;;
 }
 
-.activeDay {
+.calendar_activeDay {
     outline: 1px solid #0779e2;
     outline-offset: -1px;
 }
-
-
-/*.header {*/
-/*height: 100px;*/
-/*display: flex;*/
-/*flex-direction: row;*/
-/*flex-wrap: wrap;*/
-/*background-color: rgb(9, 155, 106);*/
-/*color: white;*/
-/*}    */
-/**/
-/*.header__month {*/
-/*height: 60px;*/
-/*width: 100%;*/
-/*text-align: center;*/
-/*font-size: 40px;*/
-/*}*/
-
-/*.header__day {*/
-/*display: flex;*/
-/*justify-content: center;*/
-/*width: 40px;*/
-/*height: 40px;*/
-/*}*/
-
-
-/*.calendarBox__checkmark {*/
-/*display: flex;*/
-/*justify-content: center;*/
-/*align-items: center;*/
-/*width: 40px;*/
-/*height: 40px;*/
-/*cursor: pointer;*/
-/*}*/
-
-/*.calendarBox__checkmark--inactive {*/
-/*background-color: lightgrey;*/
-/*cursor: default;*/
-/*color: gray;*/
-/*}*/
-
-/*.calendarBox__checkmark--holiday {*/
-/*background-color: red;*/
-/*}*/
-
-/*.calendarBox__radio {*/
-/*display: none;*/
-/*}*/
-
-/*.calendarBox__radio:checked ~ .calendarBox__checkmark {*/
-/*background-color: blue;*/
-/*}*/
-
-/*.calendarBox__radio:checked ~ .calendarBox__checkmark {*/
-/*background-color: blue;*/
-/*}*/
-
-/*.calendarBox__checkmark:hover  {*/
-/*background-color: rgb(111, 197, 226);*/
-/**/
-/*}*/
-
-/*.calendarBox__checkmark--inactive:hover {*/
-/*background-color: lightgrey;*/
-/*}*/
-
-/*.calendarBox__checkmark--holiday:hover {*/
-/*background-color: darkorchid;*/
-/*}*/

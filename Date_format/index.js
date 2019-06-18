@@ -22,35 +22,136 @@ format is the format of the output. Here are some examples :
 'HH:mm' // Can return something like '12:04'
 'dd/MM/yyyy' // Can return something like '01/02/1995'
 'd/M/yy H%m' // Can return something like '1/31/14 1%59'
-Where there is an odd number of letters, parse the longest first then the remaining if needed. For example, yyyshoud be parsed as [yy]y, ddd should be parsed as [dd][d].
+Where there is an odd number of letters, parse the longest first then the remaining if needed. For example, yyy shoud be parsed as [yy]y, ddd should be parsed as [dd][d].
 When there are more than 2 of MdHms, for example, dddd it should be parsed as [dd][dd].
-Tests:
-  let baseDate = new Date(0);
-  let baseInt = 0;
-  let baseStr= '0';
 
-  var formats = {
-     'HH:mm' :'00:00',
-     'dd/MM/yyyy' : '01/01/1970',
-     'd/M/yy H%m' : '1/1/70 0%0',
-     'ss@mm == s@m' : '00@00 == 0@0'
-  };
-
-  for(var f in formats){
-     Test.assertEquals(dateFilter(baseDate,f),formats[f]);
-     Test.assertEquals(dateFilter(baseStr,f),formats[f]);
-     Test.assertEquals(dateFilter(baseInt,f),formats[f]);
-  }
 */
 
+function dateFilter(date, format){
+    const error = {status: 'failed', description: 'please enter a valid date format'};
 
-function dateFilter() {
+    if (Number.isFinite(date)) {
+        date = new Date(date);
+    } else if ( typeof date === 'string') {
+        date = Date.parse(date);
+    } else if (!date instanceof Date || isNaN(date)){
+        return error;
+    }
 
+    let yyyy = date.getUTCFullYear();
+    let yy = String(yyyy).slice(2);
+    let M = date.getUTCMonth() + 1;
+    let MM = getQuantitySymbols(String(date.getUTCMonth() + 1));
+    let d = date.getUTCDate();
+    let dd = getQuantitySymbols(String(date.getUTCDate()));
+    let HH = getQuantitySymbols(String(date.getUTCHours()));
+    let H = date.getUTCHours();
+    let mm = getQuantitySymbols(String(date.getUTCMinutes()));
+    let m = date.getUTCMinutes();
+    let ss = getQuantitySymbols(String(date.getUTCSeconds()));
+    let s = date.getUTCSeconds();
+    let result = format;
+    let regexp = [
+        [/yyyy/g, yyyy],
+        [/yy/g, yy],
+        [/MM/g, MM],
+        [/M/g, M],
+        [/dd/g, dd],
+        [/d/g, d],
+        [/HH/g, HH],
+        [/H/g, H],
+        [/mm/g, mm],
+        [/m/g, m],
+        [/ss/g, ss],
+        [/s/g, s]
+    ];
 
-    return ;
+    regexp.forEach(reg => (result = result.replace(reg[0], reg[1])));
+
+    return result;
+}
+function getQuantitySymbols(number) {
+    return number < 10 ? number = '0' + number: number;
 }
 
-dateFilter([1, 3, 4, 6, 8], -2);
+console.log(dateFilter(new Date(0), 'HH:mm'));
+console.log(dateFilter(0, 'dd/MM/yyyy'));
+console.log(dateFilter(new Date(0), 'd/M/yy H%m'));
+console.log(dateFilter(new Date(0), 'ss@mm == s@m'));
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//
+// function dateFilter(date, str) {
+//     if (typeof date === 'string') date = Date.parse(date);
+//     if (Number.isFinite(date)) date = new Date(date);
+//     if (!date instanceof Date || isNaN(date)) return 'Wrong date';
+//
+//     let yyyy = date.getUTCFullYear();
+//     let yy = String(yyyy).slice(2);
+//     let M = date.getUTCMonth() + 1;
+//     let MM =
+//         String(date.getUTCMonth()).length === 1
+//             ? '0' + (date.getUTCMonth() + 1)
+//             : date.getUTCMonth() + 1;
+//     let d = date.getUTCDate();
+//     let dd =
+//         String(date.getUTCDate()).length === 1
+//             ? '0' + date.getUTCDate()
+//             : date.getUTCDate();
+//     let HH =
+//         String(date.getUTCHours()).length === 1
+//             ? '0' + date.getUTCHours()
+//             : date.getUTCHours();
+//     let H = date.getUTCHours();
+//     let mm =
+//         String(date.getUTCMinutes()).length === 1
+//             ? '0' + date.getUTCMinutes()
+//             : date.getUTCMinutes();
+//     let m = date.getUTCMinutes();
+//     let ss =
+//         String(date.getUTCSeconds()).length === 1
+//             ? '0' + date.getUTCSeconds()
+//             : date.getUTCSeconds();
+//     let s = date.getUTCSeconds();
+//
+//     let result = str;
+//     let reps = [
+//         [/yyyy/g, yyyy],
+//         [/yy/g, yy],
+//         [/MM/g, MM],
+//         [/M/g, M],
+//         [/dd/g, dd],
+//         [/d/g, d],
+//         [/HH/g, HH],
+//         [/H/g, H],
+//         [/mm/g, mm],
+//         [/m/g, m],
+//         [/ss/g, ss],
+//         [/s/g, s]
+//     ];
+//     reps.forEach(rep => (result = result.replace(rep[0], rep[1])));
+//     return result;
+// }
+// console.log(dateFilter(new Date(0), 'HH:mm'));
+// console.log(dateFilter(new Date(0), 'dd/MM/yyyy'));
+// console.log(dateFilter(new Date(0), 'd/M/yy H%m'));
 
 
 

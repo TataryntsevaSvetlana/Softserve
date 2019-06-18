@@ -5,16 +5,13 @@
 Входные параметры: длина и значение минимального квадрата
 Выход: строка с рядом чисел
 */
-function isValidValues(number1, number2){
-    return Number(number1) > 0 && Number(number2) > 0;
-}
 
 function getNumericSequence(n, m) {
+    const validationErrors = isValidValues(n, m);
 
-    if (isValidValues(n, m)) {
+    if (validationErrors.length === 0) {
         let number = Math.sqrt(m);
         let firstValue = Math.ceil(number);
-        let result;
 
         let arr = [];
         let i = 0;
@@ -23,19 +20,37 @@ function getNumericSequence(n, m) {
             arr.push(firstValue + i);
             i++;
         }
-        result = arr.join(', ');
+        return arr.join(', ');
 
-        return result;
     } else {
-        return { status: 'failed', reason: 'wrong input values' };
+        return validationErrors;
     }
 }
 
-console.log(getNumericSequence(0b11 , 12));
+console.log(getNumericSequence(0, 14));
 
+function isValidValues(number1, number2) {
+    const isValidValue1 = Number.isFinite(number1) || Number(number1);
+    const isValidValue2 = Number.isFinite(number2) || Number(number2);
+    const isValue1GreaterThanZero =  number1 > 0;
+    const isValue2GreaterThanZero =  number2 > 0;
+    const validationErrors = [];
 
+    if (!isValidValue1){
+        validationErrors.push({ status: 'failed', reason: 'the entered first value is not a number'});
+    }
+    if (!isValidValue2){
+        validationErrors.push({ status: 'failed', reason: 'the entered second value is not a number'});
+    }
+    if (!isValue1GreaterThanZero){
+        validationErrors.push({ status: 'failed', reason: 'the entered first value must be more than 0'});
+    }
+    if (!isValue2GreaterThanZero){
+        validationErrors.push({ status: 'failed', reason: 'the entered second value must be more than 0'});
+    }
 
-
+    return validationErrors;
+}
 
 
 

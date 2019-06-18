@@ -10,12 +10,65 @@
 
 */
 
-function isValidInput(obj) {
-    const isObject = obj && obj.constructor === Object;
-    const { min, max } = obj;
-    const validValues = isFinite(min) && isFinite(max) && min < max && min > 0;
+function getWinner(context) {
+    const validationErrors = isValidInput(context);
 
-    return isObject && validValues;
+    if (validationErrors.length === 0) {
+        const NUMBER_LENGTH_TICKET = 6;
+        let simpleCounter = 0;
+        let complicatedCounter = 0;
+
+        for (let i = context.min; i <= context.max; i++) {
+            let ticket = String(i);
+            if (ticket.length < NUMBER_LENGTH_TICKET) {
+                ticket = ticket.padStart(NUMBER_LENGTH_TICKET, "0");
+            }
+
+            let ticketNumbers = ticket.split('');
+            simpleCounter += simpleCounting(ticketNumbers);
+            complicatedCounter += complicatedCounting(ticketNumbers);
+        }
+
+        const winner = (simpleCounter > complicatedCounter) ? 'simple method' : 'complicated method';
+
+        return {
+            winner,
+            simple: simpleCounter,
+            complicated: complicatedCounter
+        };
+
+    } else {
+            return validationErrors;
+    }
+}
+
+const context = {min: 100100, max: 100102 };
+
+console.log(getWinner(context));
+
+
+function isValidInput(obj) {
+    const { min, max } = obj;
+    const isMinValid = Number.isFinite(min) || Number(min);
+    const isMaxValid = Number.isFinite(max)  || Number(max);
+    const isMinGreaterThanZero =  min > 0;
+    const isMaxGreaterThanMin =  min < max;
+    const validationErrors = [];
+
+    if (!isMinValid){
+        validationErrors.push({ status: 'failed', reason: 'wrong input value - min'});
+    }
+    if (!isMaxValid){
+        validationErrors.push({ status: 'failed', reason: 'wrong input value - max'});
+    }
+    if (!isMinGreaterThanZero){
+        validationErrors.push({ status: 'failed', reason: 'wrong input value min - value must be more than 0'});
+    }
+    if (!isMaxGreaterThanMin){
+        validationErrors.push({ status: 'failed', reason: 'wrong input value max - value must be greater than min'});
+    }
+
+    return validationErrors;
 }
 
 function sumValue(arr) {
@@ -43,44 +96,6 @@ function complicatedCounting(arr) {
 
     return (sumValue(evenNumbersSum) === sumValue(oddNumbersSum)) ? 1 : 0;
 }
-
-
-function getWinner(context) {
-    if (isValidInput(context)) {
-        const NUMBER_LENGTH_TICKET = 6;
-        let simpleCounter = 0;
-        let complicatedCounter = 0;
-
-        for (let i = context.min; i <= context.max; i++) {
-            let ticket = String(i);
-            if (ticket.length < NUMBER_LENGTH_TICKET) {
-                ticket = ticket.padStart(NUMBER_LENGTH_TICKET, "0");
-            }
-
-            let ticketNumbers = ticket.split('');
-            simpleCounter += simpleCounting(ticketNumbers);
-            complicatedCounter += complicatedCounting(ticketNumbers);
-        }
-
-        const winner = (simpleCounter > complicatedCounter) ? 'simple method' : 'simple method';
-
-        return {
-            winner,
-            simple: simpleCounter,
-            complicated: complicatedCounter
-        };
-    }
-
-    return { status: 'failed', reason: 'wrong input values' };
-}
-
-const context = {
-    min:  1,
-    max: 111111
-};
-
-console.log(getWinner(context));
-
 
 
 

@@ -1,34 +1,28 @@
 describe("showLetter", () => {
-    it("showLetter({ a: 100, b: 70 }, { c: 105, d: 15 }), 2", () => {
-        assert.equal(showLetter({ a: 100, b: 70 }, { c: 105, d: 15 }), 2);
+    it("The first envelope should fit in the second (Enter the valid integers)", () => {
+        assert.equal(showLetter({ a: 34, b: 1 }, { c: 30, d: 20 }), 1);
     });
 
-    it("showLetter({ a: 34.01, b: 30 }, { c: 34, d: 1 }), 2", () => {
+    it("The second envelope should fit in the first (Enter the valid decimals numbers)", () => {
         assert.equal(showLetter({ a:34.01, b: 30 }, { c: 34, d: 1 }), 2);
     });
 
-    it("showLetter({ a: 34, b: 1 }, { c: 30, d: 20.8 }), 1", () => {
-        assert.equal(showLetter({ a: 34, b: 1 }, { c: 30, d: 20.8 }), 1);
-    });
-
-    it("showLetter({ a: 34, b: 5 }, { c: 30, d: 24.8 }), 1", () => {
-        assert.equal(showLetter({ a: 34, b:5 }, { c: 30, d: 24.8 }), 1);
-    });
-
-    it("вводим размеры сторон при которых невозможно вложить конверты в другдруга. Ожидаем результат 0", () => {
+     it("It is impossible to enclose envelopes each other. Expect the result 0", () => {
         assert.equal(showLetter({a: 111, b: 1}, {c: 4, d: 111}), 0);
     });
 
-    it("вводим некорректные размеры для первого конверта - длина = 0. Ожидаем сообщение об ошибке", () => {
-        assert.deepEqual(showLetter({a: 0, b: 1}, {c: 4, d: 111}), {status: 'failed', reason: 'wrong input values'});
+    it("Entered the invalid value for the first envelope (a = 0).  It returns the error message", () => {
+        assert.deepEqual(showLetter({a: 0, b: 1}, {c: 4, d: 111}), [{status: 'failed', reason: 'wrong input value for the first envelope - value must be more than 0'}]);
     });
 
-    it(" вместо обьекта передаём массив. Ожидаем сообщение об ошибке", () => {
-        assert.deepEqual(showLetter([0, 1], {c: 4, d: 111}), {status: 'failed', reason: 'wrong input values'});
+    it("Entered the value for the first envelope (a = '58').  The first envelope fit in the second", () => {
+        assert.deepEqual(showLetter({a: '58', b: 1}, {c: 4, d: 111}), 1);
     });
 
-    it("вводим некорректное значение размера для первого конверта - длина = null. Ожидаем сообщение об ошибке", () => {
-        assert.deepEqual(showLetter({a: null, b: 1}, {c: 4, d: 111}), {status: 'failed', reason: 'wrong input values'});
+    it("Entered the invalid value for the second envelope (c = empty string).  It returns the error message", () => {
+        assert.deepEqual(showLetter({a: 10, b: 1}, {c: '', d: 111}), [
+            {status: 'failed', reason: 'wrong input value for the second envelope'},
+            {status: 'failed', reason: 'wrong input value for the second envelope - value must be more than 0'}]);
     });
 
 });

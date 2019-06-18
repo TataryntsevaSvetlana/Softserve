@@ -7,30 +7,11 @@
 Выход: номер конверта, если вложение возможно, 0 – если вложение невозможно.
 */
 
-function fitInDiagonal(a, b, c, d) {
-    return c > a && b >= (2 * c * d * a + (c * c - d * d) * Math.sqrt(c * c + d * d - a * a)) / (c * c + d * d);
-}
-
-function isValidNumber(num) {
-   return Number(num) > 0;
-}
-
-function isObject(obj) {
-    return obj && obj.constructor === Object;
-}
-
-function isValidValues(obj1, obj2) {
-    const isObject1 = isObject(obj1);
-    const isObject2 = isObject(obj2);
-    const isValidValues1 = Object.values(obj1).every(isValidNumber);
-    const isValidValues2 = Object.values(obj2).every(isValidNumber);
-
-    return isObject1 && isObject2 && isValidValues1 && isValidValues2;
-}
-
 function showLetter(envelope1, envelope2) {
+    const validationErrors = isValidValues(envelope1, envelope2);
+    let result;
 
-    if (isValidValues(envelope1, envelope2)) {
+    if ( validationErrors.length === 0) {
         let {a, b} = envelope1;
         let {c, d} = envelope2;
 
@@ -46,21 +27,56 @@ function showLetter(envelope1, envelope2) {
 
         if ((a > c && b > d) || fitInDiagonal(a, b, c, d)) {
            return  2;
+
         } else if ((c > a && d > b) || fitInDiagonal(c, d, a, b)) {
            return  1;
         }
 
-        return  0;
+        result =  0;
+
     } else {
-        return {status: 'failed', reason: 'wrong input values'};
+        result = validationErrors;
     }
+    return result;
 }
 
-
-console.log(showLetter({ a: 100, b: 70 }, { c: 105, d: 15 }));
-
+console.log(showLetter({a: '58', b: 1}, {c: 4, d: 111}));
 
 
 
 
+function isValidValues(obj1, obj2) {
+    const isValidValues1 = Object.values(obj1).every(isValidNumber);
+    const isValidValuesGreaterThanZero1 = Object.values(obj1).every(isValueGreaterThanZero);
+    const isValidValues2 = Object.values(obj2).every(isValidNumber);
+    const isValidValuesGreaterThanZero2 = Object.values(obj2).every(isValueGreaterThanZero);
+    const validationErrors = [];
+
+    if (!isValidValues1){
+        validationErrors.push({ status: 'failed', reason: 'wrong input value for the first envelope'});
+    }
+    if (!isValidValuesGreaterThanZero1){
+        validationErrors.push({ status: 'failed', reason: 'wrong input value for the first envelope - value must be more than 0'});
+    }
+    if (!isValidValues2){
+        validationErrors.push({ status: 'failed', reason: 'wrong input value for the second envelope'});
+    }
+    if (!isValidValuesGreaterThanZero2){
+        validationErrors.push({ status: 'failed', reason: 'wrong input value for the second envelope - value must be more than 0'});
+    }
+
+    return validationErrors;
+}
+
+function isValidNumber(num) {
+    return Number.isFinite(num) || Number(num);
+}
+
+function isValueGreaterThanZero(num) {
+    return num > 0;
+}
+
+function fitInDiagonal(a, b, c, d) {
+    return c > a && b >= (2 * c * d * a + (c * c - d * d) * Math.sqrt(c * c + d * d - a * a)) / (c * c + d * d);
+}
 
