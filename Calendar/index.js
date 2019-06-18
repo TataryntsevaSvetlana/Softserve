@@ -17,20 +17,20 @@ function init() {
 }
 
 function onCalendarClick(event) {
-    if (event.target.classList.contains('calendar-switch-section-button-box__button_left')) {
+    if (event.target.classList.contains('calendar-switch-section-btn-box__btn_left')) {
         activeDay.setDate(activeDay.getDate() - 1);
         renderCalendar(activeDay);
     }
-    if (event.target.classList.contains('calendar-switch-section-button-box__button_right')) {
+    if (event.target.classList.contains('calendar-switch-section-btn-box__btn_right')) {
         activeDay.setDate(activeDay.getDate() + 1);
         renderCalendar(activeDay);
     }
-    if (event.target.classList.contains('calendar-switch-section-button-box__button_up')) {
+    if (event.target.classList.contains('calendar-switch-section-btn-box__btn_up')) {
         activeDay.setMonth(activeDay.getMonth() - 1);
         activeDay.setDate(1);
         renderCalendar(activeDay);
     }
-    if (event.target.classList.contains('calendar-switch-section-button-box__button_down')) {
+    if (event.target.classList.contains('calendar-switch-section-btn-box__btn_down')) {
         activeDay.setMonth(activeDay.getMonth() + 1);
         activeDay.setDate(1);
         renderCalendar(activeDay);

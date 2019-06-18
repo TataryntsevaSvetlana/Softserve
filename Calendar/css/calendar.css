@@ -6,24 +6,25 @@
     font: normal 14px Geneva, Arial, Helvetica, sans-serif;
     cursor: default;
 }
-.calendar-current-date-section {
+
+.calendar-clock-section {
     border-bottom: 1px solid lightgray;
 }
 
-.calendar-current-date-section,
+.calendar-clock-section,
 .calendar-switch-section,
-.calendar-date-name-section,
+.calendar-days-section,
 .calendar-box-section,
-.calendar-current-date-section__clock,
-.calendar-current-date-section__date {
+.calendar-clock-section__clock,
+.calendar-clock-section__date {
     padding: 10px;
 }
 
-.calendar-current-date-section__clock {
+.calendar-clock-section__clock {
     font-size: 30px;
 }
 
-.calendar-current-date-section__date {
+.calendar-clock-section__date {
     color: #0779e2;
 }
 
@@ -33,9 +34,9 @@
 }
 
 .calendar_currentDay.calendar_activeDay {
-    outline: 2px solid black;
-    outline-offset: -5px;
-}
+     outline: 2px solid black;
+     outline-offset: -5px;
+ }
 
 .calendar-switch-section__month{
     text-transform: capitalize;
@@ -43,14 +44,14 @@
 }
 
 .calendar-switch-section,
-.calendar-date-name-section {
+.calendar-days-section {
     display: flex;
     flex-wrap: nowrap;
     align-items: center;
     justify-content: space-between;
 }
 
-.calendar-date-name-section__day,
+.calendar-days-section__day,
 .calendar-box-section__day {
     width: 38px;
     height: 38px;
@@ -58,21 +59,21 @@
     display: flex;
     justify-content: space-around;
     align-items: center;
-
-}
-.calendar-date-name-section__day:hover,
-.calendar-box-section__day:hover {
-    background-color: lightgray;
 }
 
+.calendar-box-section__day:hover,
+.calendar_currentDay.calendar_activeDay:hover {
+    outline: 2px solid lightgray;
+    outline-offset: 0;
+}
 
-.calendar-switch-section-button-box__button{
+.calendar-switch-section-btn-box__btn{
     background-color: #3c3c3c;
     cursor: pointer;
     border: none;
 }
 
-.calendar-switch-section-button-box__arrow {
+.calendar-switch-section-btn-box__arrow {
     color: white;
     pointer-events: none
 }
