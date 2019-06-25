@@ -1,9 +1,9 @@
-import { Observer } from './helpers';
-import { petFactory } from './models';
+import { Observer } from './helpers/index.js';
+import { petFactory } from './models/index.js';
 import { pets } from './json/pets.js';
 import { PetListView } from './views/pet-list-view.js';
 import { TranslatorDropDownView } from "./views/translation-dropdown-view.js";
-
+console.log(123);
 class Controller {
     init() {
         const observer = new Observer();
