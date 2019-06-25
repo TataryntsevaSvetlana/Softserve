@@ -16,8 +16,9 @@ class PetView {
         const additionalInfo = this.petModel.getAdditionalInfo();
 
         this.el.innerHTML = `
+            <div ><img src=${this.petModel.url} class="img"></div>
             <h5>${info}</h5>
-            <h6>${additionalInfo}</h6>`
+            <p>${additionalInfo}</p>`
     }
 
     render() {

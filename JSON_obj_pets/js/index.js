@@ -3,7 +3,7 @@ import { petFactory } from './models/index.js';
 import { pets } from './json/pets.js';
 import { PetListView } from './views/pet-list-view.js';
 import { TranslatorDropDownView } from "./views/translation-dropdown-view.js";
-console.log(123);
+
 class Controller {
     init() {
         const observer = new Observer();
@@ -11,7 +11,7 @@ class Controller {
         const petListView = new PetListView(petsModels, observer);
         petListView.render();
 
-        const translatorDropDownView = new TranslatorDropDownView(observer);
+        const translatorDropDownView = new TranslatorDropDownView();
         translatorDropDownView.render();
 
         translatorDropDownView.el

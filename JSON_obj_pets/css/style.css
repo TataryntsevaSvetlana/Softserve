@@ -1,4 +1,6 @@
 .card {
+    width: 500px;
+    height: 300px;
     border: 1px solid cornflowerblue;
     padding: 5px;
     margin: 5px;
@@ -7,4 +9,18 @@
 #cards {
     display: flex;
     flex-wrap: wrap;
+    align-items: flex-start;
+    justify-content: flex-start;
 }
+
+.img {
+    width: 100px;
+    height: 100px;
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+/*.translation {*/
+    /**/
+/*}*/

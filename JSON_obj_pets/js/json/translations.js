@@ -34,6 +34,31 @@ const translations = {
         ru: 'белый',
         ua: 'колир'
     },
+    rapacity: {
+        en: 'rapacity',
+        ru: 'хищник',
+        ua: 'хижак'
+    },
+    price: {
+        en: 'price',
+        ru: 'цена',
+        ua: 'стоимость'
+    },
+    quantity: {
+        en: 'quantity',
+        ru: 'количество',
+        ua: 'хижак'
+    },
+    age: {
+        en: 'age',
+        ru: 'возраст',
+        ua: 'век'
+    },
+    gender: {
+        en: 'gender',
+        ru: 'пол',
+        ua: 'пол'
+    },
 };
 
 export { translations };

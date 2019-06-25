@@ -13,6 +13,7 @@ class Pet {
         this.type = pet.type;
         this.id = pet.id;
         this.gender = pet.gender;
+        this.url = pet.url;
         this.observer = observer;
 
         this.init();
@@ -28,11 +29,18 @@ class Pet {
     }
 
     getInfo() {
-        return `Type: ${this.type}, name: ${this.name}`
+        return `type: ${this.type}, name: ${this.name}, `
     }
 
     getAdditionalInfo() {
-        return `${translations.color[this.lang]}: ${this.color}, rapacity: ${this.rapacity}`
+        // return `${translations.color[this.lang]}: ${translations[this.color][this.lang]},
+         return `${translations.color[this.lang]}: ${this.color},
+        ${translations.price[this.lang]}: ${this.price} hrn,
+         ${translations.quantity[this.lang]}: ${this.quantity},
+          ${translations.age[this.lang]}: ${this.age} year,
+         ${translations.gender[this.lang]}: ${this.gender},
+        
+         ${translations.rapacity[this.lang]}: ${this.rapacity}`
     }
 }
 
