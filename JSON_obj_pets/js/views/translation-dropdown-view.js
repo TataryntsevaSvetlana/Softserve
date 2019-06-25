@@ -1,13 +1,6 @@
-class TranslatorDropDown {
-    constructor(observer) {
+class TranslatorDropDownView {
+    constructor() {
         this.el = document.querySelector('.translation');
-        this.observer = observer;
-
-        this.init();
-    }
-
-    init() {
-        this.el.addEventListener('change', this.handleChange.bind(this), false);
     }
 
     render() {
@@ -19,8 +12,6 @@ class TranslatorDropDown {
             </select>
         `
     }
-
-    handleChange(e) {
-        this.observer.triggerEvent(e.target.value);
-    }
 }
+
+export { TranslatorDropDownView };

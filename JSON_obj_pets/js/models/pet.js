@@ -1,3 +1,5 @@
+import { translations } from '../json';
+
 class Pet {
     constructor(pet, observer) {
         this.name = pet.name;
@@ -17,15 +19,12 @@ class Pet {
     }
 
     init() {
-        this.el = document.createElement('div');
-        this.el.classList.add('card');
         this.lang = 'en';
         this.observer.subscribe(this.onChangeLanguage.bind(this));
     }
 
     onChangeLanguage(lang) {
         this.lang = lang;
-        this.updateEl();
     }
 
     getInfo() {
@@ -35,19 +34,6 @@ class Pet {
     getAdditionalInfo() {
         return `${translations.color[this.lang]}: ${this.color}, rapacity: ${this.rapacity}`
     }
-
-    updateEl() {
-        const info = this.getInfo();
-        const additionalInfo = this.getAdditionalInfo();
-
-        this.el.innerHTML = `
-            <h5>${info}</h5>
-            <h6>${additionalInfo}</h6>`
-    }
-
-    render() {
-        this.updateEl();
-
-        document.querySelector('#cards').appendChild(this.el);
-    }
 }
+
+export { Pet };

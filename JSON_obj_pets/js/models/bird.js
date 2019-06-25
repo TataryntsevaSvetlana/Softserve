@@ -1,3 +1,5 @@
+import { Pet } from './index.js'
+
 class Bird extends Pet {
     constructor(pet, observer) {
         super(pet, observer);
@@ -6,3 +8,5 @@ class Bird extends Pet {
         this.canSing = pet.canSing;
     }
 }
+
+export { Bird };

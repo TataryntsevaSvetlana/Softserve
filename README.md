@@ -1,5 +1,7 @@
 # Tasks
 
+
+1. [Pets](https://tataryntsevasvetlana.github.io/Softserve/JSON_obj_pets/index.html)
 1. [Chess](https://tataryntsevasvetlana.github.io/Softserve/Chess/index.html)
 1. [Envelope](https://tataryntsevasvetlana.github.io/Softserve/Envelope/index.html)
 1. [Fibonacci](https://tataryntsevasvetlana.github.io/Softserve/Fibonacci/index.html)

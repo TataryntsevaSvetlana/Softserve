@@ -1,3 +1,5 @@
+import { Cat, Dog, Fish, Bird } from './index.js';
+
 function petFactory(pet, observer) {
     switch (pet.type) {
         case 'cat': {
@@ -18,3 +20,5 @@ function petFactory(pet, observer) {
         }
     }
 }
+
+export { petFactory };

@@ -1,3 +1,5 @@
+import { Mammal } from './mammal.js'
+
 class Dog extends Mammal {
     constructor(pet, observer) {
         super(pet, observer);
@@ -8,3 +10,5 @@ class Dog extends Mammal {
         return `СОБАЦЮРА`
     }
 }
+
+export { Dog }

@@ -11,3 +11,5 @@ class Observer {
         this.observers.forEach(subscriber => subscriber(data));
     }
 }
+
+export { Observer };
