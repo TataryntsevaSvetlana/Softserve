@@ -1,5 +1,5 @@
 import { Pet } from './index.js'
-import {translations} from "../json";
+import {translations} from "../json/index.js";
 
 class Fish extends Pet {
     constructor(pet, observer) {

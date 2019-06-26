@@ -1,4 +1,4 @@
-import { translations } from '../json/index.js';
+import { translations, pets } from '../json/index.js';
 
 class Pet {
     constructor(pet, observer) {
@@ -17,6 +17,10 @@ class Pet {
         this.init();
     }
 
+    static fetchData() {
+        return pets;
+    }
+
     init() {
         this.lang = 'en';
         this.observer.subscribe(this.onChangeLanguage.bind(this));
@@ -29,10 +33,11 @@ class Pet {
     getInfo() {
         return `${translations.type[this.lang]}: ${translations[this.type][this.lang]},
          ${translations.name[this.lang]}: ${translations[this.name][this.lang]}`
+        // ${translations.price[this.lang]}: ${translations[this.price][this.lang]} hrn,
     }
 
     getAdditionalInfo() {
-        // ${translations.price[this.lang]}: ${translations[this.price][this.lang]} hrn,
+
         // ${translations.quantity[this.lang]}: ${translations[this.quantity][this.lang]},
         // ${translations.age[this.lang]}: ${translations[this.age][this.lang]} year,
 

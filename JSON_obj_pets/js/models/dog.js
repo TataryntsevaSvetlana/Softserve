@@ -1,5 +1,5 @@
 import { Mammal } from './mammal.js'
-import {translations} from "../json";
+import {translations} from "../json/index.js";
 
 class Dog extends Mammal {
     constructor(pet, observer) {

@@ -1,14 +1,16 @@
 import { Observer } from './helpers/index.js';
 import { petFactory } from './models/index.js';
-import { pets } from './json/pets.js';
+import { Pet } from "./models/index.js";
 import { PetListView } from './views/pet-list-view.js';
 import { TranslatorDropDownView } from "./views/translation-dropdown-view.js";
 
 class Controller {
     init() {
-        const observer = new Observer();
-        const petsModels = pets.map(pet => petFactory(pet, observer));
-        const petListView = new PetListView(petsModels, observer);
+        const changeLangObserver = new Observer();
+
+        const fetchedData = Pet.fetchData();
+        const petsModels = fetchedData.map(pet => petFactory(pet, changeLangObserver));
+        const petListView = new PetListView(petsModels, changeLangObserver);
         petListView.render();
 
         const translatorDropDownView = new TranslatorDropDownView();
@@ -16,10 +18,16 @@ class Controller {
 
         translatorDropDownView.el
             .addEventListener('change', (e) => {
-                observer.triggerEvent(e.target.value);
+                changeLangObserver.triggerEvent(e.target.value);
             });
     }
 }
 const controller = new Controller();
 
 document.addEventListener('DOMContentLoaded', controller.init);
+
+
+// var PenguinController = function PenguinController(penguinView, penguinModel) {
+//     this.penguinView = penguinView;
+//     this.penguinModel = penguinModel;
+// };
