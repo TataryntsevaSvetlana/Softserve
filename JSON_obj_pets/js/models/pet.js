@@ -6,9 +6,7 @@ class Pet {
         this.price = pet.price;
         this.quantity = pet.quantity;
         this.age = pet.age;
-        this.weight = pet.weight;
         this.color = pet.color;
-        this.lifetime = pet.lifetime;
         this.rapacity = pet.rapacity;
         this.type = pet.type;
         this.id = pet.id;
@@ -29,18 +27,18 @@ class Pet {
     }
 
     getInfo() {
-        return `type: ${this.type}, name: ${this.name}, `
+        return `${translations.type[this.lang]}: ${translations[this.type][this.lang]},
+         ${translations.name[this.lang]}: ${translations[this.name][this.lang]}`
     }
 
     getAdditionalInfo() {
-        // return `${translations.color[this.lang]}: ${translations[this.color][this.lang]},
-         return `${translations.color[this.lang]}: ${this.color},
-        ${translations.price[this.lang]}: ${this.price} hrn,
-         ${translations.quantity[this.lang]}: ${this.quantity},
-          ${translations.age[this.lang]}: ${this.age} year,
-         ${translations.gender[this.lang]}: ${this.gender},
-        
-         ${translations.rapacity[this.lang]}: ${this.rapacity}`
+        // ${translations.price[this.lang]}: ${translations[this.price][this.lang]} hrn,
+        // ${translations.quantity[this.lang]}: ${translations[this.quantity][this.lang]},
+        // ${translations.age[this.lang]}: ${translations[this.age][this.lang]} year,
+
+         return `${translations.color[this.lang]}: ${translations[this.color][this.lang]},  
+         ${translations.gender[this.lang]}: ${translations[this.gender][this.lang]},       
+         ${translations.rapacity[this.lang]}: ${translations[this.rapacity][this.lang]}`
     }
 }
 

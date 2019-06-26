@@ -1,11 +1,15 @@
 import { Pet } from './index.js'
+import {translations} from "../json";
 
 class Bird extends Pet {
     constructor(pet, observer) {
         super(pet, observer);
         this.canfly = pet.canfly;
         this.canSpeak = pet.canSpeak;
-        this.canSing = pet.canSing;
+    }
+
+    getSpacialInfo() {
+        return `${translations.canfly[this.lang]}: ${translations[this.canfly][this.lang]},${translations.canSpeak[this.lang]}: ${translations[this.canSpeak][this.lang]}`
     }
 }
 

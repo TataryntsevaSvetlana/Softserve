@@ -11,14 +11,23 @@ class PetView {
         this.el.classList.add('card');
     }
 
-    update() {
-        const info = this.petModel.getInfo();
-        const additionalInfo = this.petModel.getAdditionalInfo();
+    showInfo(str) {
+        return str.split(',').reduce((acc, el) => {
+            acc += `<div>${el}</div>`;
+            return acc;
+        }, '');
 
-        this.el.innerHTML = `
-            <div ><img src=${this.petModel.url} class="img"></div>
+    }
+
+    update() {
+        const info = this.showInfo(this.petModel.getInfo());
+        const additionalInfo = this.showInfo(this.petModel.getAdditionalInfo());
+        const addEspInfo = this.showInfo(this.petModel.getSpacialInfo());
+
+        this.el.innerHTML = `<div ><img src=${this.petModel.url} class="img"></div>
             <h5>${info}</h5>
-            <p>${additionalInfo}</p>`
+            <div>${additionalInfo}</div>
+            <div>${addEspInfo}</div>`
     }
 
     render() {
@@ -28,4 +37,4 @@ class PetView {
     }
 }
 
-export { PetView };
+export {PetView};

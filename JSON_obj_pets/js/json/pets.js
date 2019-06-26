@@ -5,9 +5,7 @@ const pets = [
         "price": 100,
         "quantity": 5,
         "age": 3,
-        "weight": 10,
         "color": "multicolored",
-        "lifetime": 10,
         "rapacity": true,
         "type": "cat",
         "gender": "male",
@@ -16,7 +14,7 @@ const pets = [
         "dockedTail": false,
         "shortPaws": false,
         "lopiness": false,
-        "url": "https://i.pinimg.com/736x/0e/f5/49/0ef5497a58c2ba5900ffa8a4656ed0a8.jpg"
+        "url": "http://funkot.ru/wp-content/uploads/2016/05/siamskii-kot-colorpoint.jpg"
     },
     {
         "id": 2,
@@ -24,9 +22,7 @@ const pets = [
         "price": 150,
         "quantity": 2,
         "age": 3,
-        "weight": 10,
         "color": "multicolored",
-        "lifetime": 10,
         "rapacity": true,
         "type": "cat",
         "gender": "female",
@@ -35,7 +31,7 @@ const pets = [
         "dockedTail": false,
         "shortPaws": false,
         "lopiness": false,
-        "url": "https://i.pinimg.com/736x/0e/f5/49/0ef5497a58c2ba5900ffa8a4656ed0a8.jpg"
+        "url": "http://lapusiki.com/wp-content/uploads/2017/12/siamskaya-koshka.jpg"
     },
     {
         "id": 3,
@@ -43,9 +39,7 @@ const pets = [
         "price": 200,
         "quantity": 2,
         "age": 1,
-        "weight": 15,
         "color": "blue",
-        "lifetime": 10,
         "rapacity": true,
         "type": "cat",
         "gender": "female",
@@ -54,7 +48,7 @@ const pets = [
         "dockedTail": false,
         "shortPaws": false,
         "lopiness": true,
-        "url": "https://i.pinimg.com/736x/0e/f5/49/0ef5497a58c2ba5900ffa8a4656ed0a8.jpg"
+        "url": "http://pipcat.ru/wp-content/uploads/2016/12/4e56b2dfabd82385277f7c1b8f8e72e9.jpg"
     },
     {
         "id": 4,
@@ -62,9 +56,7 @@ const pets = [
         "price": 300,
         "quantity": 1,
         "age": 2,
-        "weight": 15,
         "color": "ginger",
-        "lifetime": 15,
         "rapacity": true,
         "type": "cat",
         "gender": "male",
@@ -73,7 +65,7 @@ const pets = [
         "dockedTail": false,
         "shortPaws": false,
         "lopiness": false,
-        "url": "https://i.pinimg.com/736x/0e/f5/49/0ef5497a58c2ba5900ffa8a4656ed0a8.jpg"
+        "url": "http://lemiki.ru/wp-content/uploads/2017/04/image3.jpeg"
     },
     {
         "id": 5,
@@ -81,9 +73,7 @@ const pets = [
         "price": 400,
         "quantity": 3,
         "age": 1,
-        "weight": 7,
         "color": "body",
-        "lifetime": 20,
         "rapacity": true,
         "type": "cat",
         "gender": "male",
@@ -92,7 +82,7 @@ const pets = [
         "dockedTail": false,
         "shortPaws": false,
         "lopiness": false,
-        "url": "https://i.pinimg.com/736x/0e/f5/49/0ef5497a58c2ba5900ffa8a4656ed0a8.jpg"
+        "url": "https://petstory.ru/resize/800x800x80/upload/images/articles/breeds/canadian-sphynx/canadian-sphynx_3.jpg"
     },
     {
         "id": 6,
@@ -100,9 +90,7 @@ const pets = [
         "price": 500,
         "quantity": 3,
         "age": 1,
-        "weight": 7,
         "color": "body",
-        "lifetime": 20,
         "rapacity": true,
         "type": "cat",
         "gender": "female",
@@ -111,7 +99,7 @@ const pets = [
         "dockedTail": false,
         "shortPaws": false,
         "lopiness": false,
-        "url": "https://i.pinimg.com/736x/0e/f5/49/0ef5497a58c2ba5900ffa8a4656ed0a8.jpg"
+        "url": "http://catfur.ru/uploads/posts/2014-06/1403251057_1.jpg"
     },
     {
         "id": 7,
@@ -119,9 +107,7 @@ const pets = [
         "price": 500,
         "quantity": 3,
         "age": 1,
-        "weight": 7,
         "color": "multicolored",
-        "lifetime": 17,
         "rapacity": true,
         "type": "cat",
         "gender": "female",
@@ -130,7 +116,7 @@ const pets = [
         "dockedTail": false,
         "shortPaws": true,
         "lopiness": false,
-        "url": "https://i.pinimg.com/736x/0e/f5/49/0ef5497a58c2ba5900ffa8a4656ed0a8.jpg"
+        "url": "http://pipcat.ru/wp-content/uploads/2016/09/koshka_manchkin_3_23192416.jpg"
     },
     {
         "id": 8,
@@ -138,9 +124,7 @@ const pets = [
         "price": 250,
         "quantity": 1,
         "age": 2,
-        "weight": 35,
         "color": "black",
-        "lifetime": 15,
         "rapacity": true,
         "type": "dog",
         "gender": "female",
@@ -149,7 +133,7 @@ const pets = [
         "dockedTail": false,
         "shortPaws": false,
         "specialization": "security",
-        "url": "https://i.pinimg.com/736x/0e/f5/49/0ef5497a58c2ba5900ffa8a4656ed0a8.jpg"
+        "url": "https://petsi.net/images/dogbreed/big/10.jpg"
     },
     {
         "id": 9,
@@ -157,9 +141,7 @@ const pets = [
         "price": 250,
         "quantity": 1,
         "age": 2,
-        "weight": 35,
         "color": "black",
-        "lifetime": 15,
         "rapacity": true,
         "type": "dog",
         "gender": "male",
@@ -168,7 +150,7 @@ const pets = [
         "dockedTail": false,
         "shortPaws": false,
         "specialization": "security",
-        "url": "https://i.pinimg.com/736x/0e/f5/49/0ef5497a58c2ba5900ffa8a4656ed0a8.jpg"
+        "url": "https://vignette.wikia.nocookie.net/doge/images/5/53/%D0%9D%D0%B5%D0%BC%D0%B5%D1%86%D0%BA%D0%B0%D1%8F_%D0%BE%D0%B2%D1%87%D0%B0%D1%80%D0%BA%D0%B0.jpg/revision/latest?cb=20180325231507&path-prefix=ru"
     },
     {
         "id": 10,
@@ -176,9 +158,7 @@ const pets = [
         "price": 500,
         "quantity": 1,
         "age": 2,
-        "weight": 80,
         "color": "white",
-        "lifetime": 15,
         "rapacity": true,
         "type": "dog",
         "gender": "male",
@@ -187,7 +167,7 @@ const pets = [
         "dockedTail": true,
         "shortPaws": false,
         "specialization": "security",
-        "url": "https://i.pinimg.com/736x/0e/f5/49/0ef5497a58c2ba5900ffa8a4656ed0a8.jpg"
+        "url": "https://opt-1031816.ssl.1c-bitrix-cdn.ru/upload/resize_cache/iblock/e9b/750_400_1/sredneaziatskaja_ovcharka.jpg?1528236061179721"
     },
     {
         "id": 11,
@@ -195,9 +175,7 @@ const pets = [
         "price": 200,
         "quantity": 3,
         "age": 1,
-        "weight": 20,
         "color": "ginger",
-        "lifetime": 20,
         "rapacity": true,
         "type": "dog",
         "gender": "male",
@@ -206,7 +184,7 @@ const pets = [
         "dockedTail": false,
         "shortPaws": true,
         "specialization": "hunting",
-        "url": "https://i.pinimg.com/736x/0e/f5/49/0ef5497a58c2ba5900ffa8a4656ed0a8.jpg"
+        "url": "https://www.royal-canin.ru/upload/iblock/f09/taksa.jpg"
     },
     {
         "id": 12,
@@ -214,9 +192,7 @@ const pets = [
         "price": 300,
         "quantity": 5,
         "age": 1,
-        "weight": 20,
-        "color": "ginger",
-        "lifetime": 20,
+        "color": "black",
         "rapacity": true,
         "type": "dog",
         "gender": "female",
@@ -225,7 +201,7 @@ const pets = [
         "dockedTail": false,
         "shortPaws": true,
         "specialization": "hunting",
-        "url": "https://i.pinimg.com/736x/0e/f5/49/0ef5497a58c2ba5900ffa8a4656ed0a8.jpg"
+        "url": "https://avatars.mds.yandex.net/get-pdb/1368870/f16f8e50-ef06-4c66-90ad-f1b3cef559cf/s1200"
     },
     {
         "id": 13,
@@ -233,18 +209,16 @@ const pets = [
         "price": 300,
         "quantity": 1,
         "age": 2,
-        "weight": 3,
         "color": "body",
-        "lifetime": 10,
         "rapacity": true,
         "type": "dog",
         "gender": "female",
-        "fur": "bald",
+        "fur": "short",
         "pedigree": true,
         "dockedTail": false,
         "shortPaws": false,
         "specialization": "decorative",
-        "url": "https://i.pinimg.com/736x/0e/f5/49/0ef5497a58c2ba5900ffa8a4656ed0a8.jpg"
+        "url": "https://podrobnosti.ua/media/pictures/2017/6/9/thumbs/740x415/foto-iz-otkrytyh-istochnikov_rect_8698a69167e1769719db5adeb23e27bf.jpg"
     },
     {
         "id": 14,
@@ -252,9 +226,7 @@ const pets = [
         "price": 400,
         "quantity": 1,
         "age": 1,
-        "weight": 50,
         "color": "multicolored",
-        "lifetime": 10,
         "rapacity": true,
         "type": "dog",
         "gender": "male",
@@ -263,7 +235,7 @@ const pets = [
         "dockedTail": true,
         "shortPaws": false,
         "specialization": "fighting",
-        "url": "https://i.pinimg.com/736x/0e/f5/49/0ef5497a58c2ba5900ffa8a4656ed0a8.jpg"
+        "url": "https://moypitomets.com/sites/default/files/styles/statya/public/bulldogs-3-645mk062111.jpg?itok=0Jpz6Js8"
     },
     {
         "id": 15,
@@ -271,15 +243,13 @@ const pets = [
         "price": 20,
         "quantity": 10,
         "age": 1,
-        "weight": 1,
         "color": "red",
-        "lifetime": 5,
         "rapacity": false,
         "type": "fish",
         "gender": "male",
         "freshwater": true,
         "zone": "top",
-        "url": "https://i.pinimg.com/736x/0e/f5/49/0ef5497a58c2ba5900ffa8a4656ed0a8.jpg"
+        "url": "https://images.ua.prom.st/130634198_mechenosets-rubinovyj.jpg"
     },
     {
         "id": 16,
@@ -287,79 +257,69 @@ const pets = [
         "price": 30,
         "quantity": 15,
         "age": 1,
-        "weight": 1,
         "color": "red",
-        "lifetime": 5,
         "rapacity": false,
         "type": "fish",
         "gender": "female",
         "freshwater": true,
         "zone": "top",
-        "url": "https://i.pinimg.com/736x/0e/f5/49/0ef5497a58c2ba5900ffa8a4656ed0a8.jpg"
+        "url": "http://s3.fotokto.ru/photo/full/561/5614700.jpg"
     },
     {
         "id": 17,
-        "name": "catfish",
+        "name": "Catfish",
         "price": 50,
         "quantity": 1,
         "age": 3,
-        "weight": 1,
         "color": "black",
-        "lifetime": 15,
         "rapacity": false,
         "type": "fish",
         "gender": "female",
         "freshwater": true,
         "zone": "bottom",
-        "url": "https://i.pinimg.com/736x/0e/f5/49/0ef5497a58c2ba5900ffa8a4656ed0a8.jpg"
+        "url": "https://rybki.guru/wp-content/uploads/2018/07/ancistrus_-min.jpg"
     },
     {
         "id": 18,
-        "name": "gourami",
+        "name": "Gourami",
         "price": 100,
         "quantity": 3,
         "age": 2,
-        "weight": 1,
         "color": "blue",
-        "lifetime": 15,
         "rapacity": false,
         "type": "fish",
         "gender": "female",
         "freshwater": true,
-        "zone": "middle",
-        "url": "https://i.pinimg.com/736x/0e/f5/49/0ef5497a58c2ba5900ffa8a4656ed0a8.jpg"
+        "zone": "top",
+        "url": "http://voboze.ru/upload/000/u1/d7/cb/gurami-mramornye-v-akvariume-soderzhanie-sovmestimost-chem-kor.jpg"
     },
     {
         "id": 19,
-        "name": "gourami",
+        "name": "Gourami",
         "price": 100,
         "quantity": 3,
         "age": 2,
-        "weight": 1,
         "color": "silver",
-        "lifetime": 15,
         "rapacity": false,
         "type": "fish",
         "gender": "female",
         "freshwater": true,
-        "zone": "middle",
-        "url": "https://i.pinimg.com/736x/0e/f5/49/0ef5497a58c2ba5900ffa8a4656ed0a8.jpg"
+        "zone": "top",
+        "url": "https://pets2.me/media/res/4/1/4/414.oqt8to.620.jpg"
     },
     {
         "id": 20,
-        "name": "Imperial angel",
+        "name": "Amphiprion",
         "price": 500,
         "quantity": 1,
         "age": 1,
-        "weight": 1,
-        "color": "multicolor",
-        "lifetime": 10,
+        "color": "multicolored",
         "rapacity": true,
         "type": "fish",
         "gender": "female",
         "freshwater": false,
-        "zone": "middle",
-        "url": "https://i.pinimg.com/736x/0e/f5/49/0ef5497a58c2ba5900ffa8a4656ed0a8.jpg"
+        "zone": "top",
+        "url": "https://images.ru.prom.st/458392294_w1493_h430_amfiprion-otsellyaris-amphiprion.jpg"
     },
     {
         "id": 21,
@@ -367,83 +327,69 @@ const pets = [
         "price": 500,
         "quantity": 1,
         "age": 1,
-        "weight": 1,
         "color": "yellow",
-        "lifetime": 10,
         "rapacity": true,
         "type": "fish",
         "gender": "female",
         "freshwater": false,
-        "zone": "middle",
-        "url": "https://i.pinimg.com/736x/0e/f5/49/0ef5497a58c2ba5900ffa8a4656ed0a8.jpg"
+        "zone": "top",
+        "url": "http://aquamir-za-steklom.ru/wp-content/uploads/2016/09/Zebrasoma-flavescens.jpg"
     },
     {
         "id": 22,
-        "name": "parrot Agapornis",
+        "name": "Agapornis",
         "price": 50,
         "quantity": 7,
         "age": 1,
-        "weight": 100,
         "color": "yellow",
-        "lifetime": 10,
         "rapacity": false,
         "type": "bird",
         "gender": "female",
         "canfly": true,
         "canSpeak": false,
-        "canSing": false,
-        "url": "https://i.pinimg.com/736x/0e/f5/49/0ef5497a58c2ba5900ffa8a4656ed0a8.jpg"
+        "url": "https://img.superzoo.cz/img/school_article/727.jpg"
     },
     {
         "id": 23,
-        "name": "parrot Agapornis",
+        "name": "Agapornis",
         "price": 100,
         "quantity": 3,
         "age": 1,
-        "weight": 100,
         "color": "green",
-        "lifetime": 10,
         "rapacity": false,
         "type": "bird",
         "gender": "female",
         "canfly": true,
         "canSpeak": false,
-        "canSing": false,
-        "url": "https://i.pinimg.com/736x/0e/f5/49/0ef5497a58c2ba5900ffa8a4656ed0a8.jpg"
+        "url": "https://www.joelsartore.com/assets/stock/BIR068/BIR068-00384-700x467.jpg"
     },
     {
         "id": 24,
-        "name": "parrot cockatoo",
+        "name": "Cockatoo",
         "price": 500,
         "quantity": 1,
         "age": 1,
-        "weight": 500,
         "color": "white",
-        "lifetime": 25,
         "rapacity": false,
         "type": "bird",
         "gender": "male",
         "canfly": true,
-        "canSpeak": false,
-        "canSing": true,
-        "url": "https://i.pinimg.com/736x/0e/f5/49/0ef5497a58c2ba5900ffa8a4656ed0a8.jpg"
+        "canSpeak": true,
+        "url": "https://www.zoospravka.ru/Bird/images/cacatua_sulphurea.jpg"
     },
     {
         "id": 25,
-        "name": "parrot cockatoo",
-        "price": 500,
+        "name": "Melopsittacus",
+        "price": 100,
         "quantity": 1,
         "age": 1,
-        "weight": 700,
-        "color": "white",
-        "lifetime": 25,
+        "color": "blue",
         "rapacity": false,
         "type": "bird",
         "gender": "female",
         "canfly": true,
         "canSpeak": false,
-        "canSing": true,
-        "url": "https://i.pinimg.com/736x/0e/f5/49/0ef5497a58c2ba5900ffa8a4656ed0a8.jpg"
+        "url": "https://www.krasnouhie.ru/wp-content/uploads/2016/12/456.jpg"
     }
 ];
 
