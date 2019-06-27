@@ -32,13 +32,14 @@ class Pet {
 
     getInfo() {
         return `${translations.type[this.lang]}: ${translations[this.type][this.lang]},
-         ${translations.name[this.lang]}: ${translations[this.name][this.lang]}`
-        // ${translations.price[this.lang]}: ${translations[this.price][this.lang]} hrn,
+         ${translations.name[this.lang]}: ${translations[this.name][this.lang]}, 
+        ${translations.price[this.lang]}: ${this.price} ₴, 
+        ${translations.quantity[this.lang]}: ${this.quantity}`
     }
 
     getAdditionalInfo() {
 
-        // ${translations.quantity[this.lang]}: ${translations[this.quantity][this.lang]},
+        // ,
         // ${translations.age[this.lang]}: ${translations[this.age][this.lang]} year,
 
          return `${translations.color[this.lang]}: ${translations[this.color][this.lang]},  

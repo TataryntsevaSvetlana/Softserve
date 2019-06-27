@@ -31,7 +31,7 @@ const pets = [
         "dockedTail": false,
         "shortPaws": false,
         "lopiness": false,
-        "url": "http://lapusiki.com/wp-content/uploads/2017/12/siamskaya-koshka.jpg"
+        "url": "https://cat.mau.ru/sia/history.jpg"
     },
     {
         "id": 3,

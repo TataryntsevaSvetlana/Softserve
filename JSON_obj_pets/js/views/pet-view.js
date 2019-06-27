@@ -21,13 +21,14 @@ class PetView {
 
     update() {
         const info = this.showInfo(this.petModel.getInfo());
-        const additionalInfo = this.showInfo(this.petModel.getAdditionalInfo());
-        const addEspInfo = this.showInfo(this.petModel.getSpacialInfo());
+        // const additionalInfo = this.showInfo(this.petModel.getAdditionalInfo());
+        // const addEspInfo = this.showInfo(this.petModel.getSpacialInfo());
 
-        this.el.innerHTML = `<div ><img src=${this.petModel.url} class="img"></div>
-            <h5>${info}</h5>
-            <div>${additionalInfo}</div>
-            <div>${addEspInfo}</div>`
+        this.el.innerHTML = `<div><img src=${this.petModel.url} class="img"></div>
+            <h6 class="textCard">${info}</h6>
+            <button class="button cart">ADD TO CART</button>`
+            // <div>${additionalInfo}</div>
+            // <div>${addEspInfo}</div>`
     }
 
     render() {
