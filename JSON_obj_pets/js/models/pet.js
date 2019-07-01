@@ -1,8 +1,8 @@
 import { translations, pets } from '../json/index.js';
 
 class Pet {
-    constructor(pet, observer) {
-        this.name = pet.name;
+    constructor(pet) {
+        this.breed = pet.breed;
         this.price = pet.price;
         this.quantity = pet.quantity;
         this.age = pet.age;
@@ -12,40 +12,29 @@ class Pet {
         this.id = pet.id;
         this.gender = pet.gender;
         this.url = pet.url;
-        this.observer = observer;
+        this.quantityPetsInCart = pet.quantityPetsInCart;
 
-        this.init();
+   }
+
+    addToCart() {
+        if (this.quantity > 0) {
+            this.quantityPetsInCart += 1;
+            this.quantity -= 1;
+        }
+        // localStorage.setItem('pets', JSON.stringify(pets));
     }
 
-    static fetchData() {
-        return pets;
+    removeFromCart() {
+        if (this.quantityPetsInCart > 0) {
+            this.quantityPetsInCart -= 1;
+            this.quantity += 1;
+        }
+        // localStorage.setItem('pets', JSON.stringify(pets));
     }
 
-    init() {
-        this.lang = 'en';
-        this.observer.subscribe(this.onChangeLanguage.bind(this));
-    }
 
-    onChangeLanguage(lang) {
-        this.lang = lang;
-    }
+//
 
-    getInfo() {
-        return `${translations.type[this.lang]}: ${translations[this.type][this.lang]},
-         ${translations.name[this.lang]}: ${translations[this.name][this.lang]}, 
-        ${translations.price[this.lang]}: ${this.price} ₴, 
-        ${translations.quantity[this.lang]}: ${this.quantity}`
-    }
-
-    getAdditionalInfo() {
-
-        // ,
-        // ${translations.age[this.lang]}: ${translations[this.age][this.lang]} year,
-
-         return `${translations.color[this.lang]}: ${translations[this.color][this.lang]},  
-         ${translations.gender[this.lang]}: ${translations[this.gender][this.lang]},       
-         ${translations.rapacity[this.lang]}: ${translations[this.rapacity][this.lang]}`
-    }
 }
 
 export { Pet };

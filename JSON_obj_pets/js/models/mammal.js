@@ -2,8 +2,8 @@ import { Pet } from './index.js'
 import {translations} from "../json/index.js";
 
 class Mammal extends Pet {
-    constructor(pet, observer) {
-        super(pet, observer);
+    constructor(pet) {
+        super(pet);
         this.fur = pet.fur;
         this.pedigree = pet.pedigree;
         this.dockedTail = pet.dockedTail;

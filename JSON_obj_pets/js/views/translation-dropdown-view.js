@@ -1,7 +1,11 @@
 class TranslatorDropDownView {
     constructor() {
         this.el = document.querySelector('.translation');
+        this.el.addEventListener('change', (e) => {
+            this.changeLang(e.target.value);
+        });
     }
+
 
     render() {
         this.el.innerHTML = `

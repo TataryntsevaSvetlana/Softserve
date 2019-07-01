@@ -1,13 +1,23 @@
 const translations = {
-    name: {
-        en: 'name',
+    breed: {
+        en: 'breed',
         ru: 'порода',
         ua: 'порода'
+    },
+    gender: {
+        en: 'gender',
+        ru: 'женская',
+        ua: 'жіноча'
     },
     Siamese: {
         en: 'Siamese',
         ru: 'Сиамская',
         ua: 'Сіамська'
+    },
+    Bengalsky: {
+        en: 'Bengalsky',
+        ru: 'Бенгальская',
+        ua: 'Бенгальська'
     },
     Scottish: {
         en: 'Scottish',
@@ -304,22 +314,87 @@ const translations = {
     quantity: {
         en: 'quantity',
         ru: 'количество',
-        ua: 'хижак'
+        ua: 'кількість'
     },
     age: {
         en: 'age',
         ru: 'возраст',
         ua: 'вік'
     },
+    Email: {
+        en: 'Email',
+        ru: 'Почта',
+        ua: 'Почта'
+    },
+    Phone: {
+        en: 'Phone',
+        ru: 'Телефон',
+        ua: 'Телефон'
+    },
+    CHECKOUT: {
+        en: 'CHECKOUT',
+        ru: 'ПОДТВЕРДИТЬ ЗАКАЗ',
+        ua: 'ПІДТВЕРДИТИ ЗАМОВЛЕННЯ'
+    },
+    SUM: {
+        en: 'SUM',
+        ru: 'СУММА',
+        ua: 'СУМА'
+    },
+    Name: {
+        en: 'Name',
+        ru: 'Имя',
+        ua: 'Iм\'я'
+    },
     type: {
         en: 'type',
         ru: 'категория',
         ua: 'категорія'
     },
-    gender: {
-        en: 'gender',
-        ru: 'пол',
-        ua: 'стать'
+    'MORE': {
+        en: 'MORE',
+        ru: 'ДЕТАЛЬНО',
+        ua: 'ДЕТАЛЬНО'
+    },
+    'ADD TO CART': {
+        en: 'ADD TO CART',
+        ru: 'ДОБАВИТЬ В КОРЗИНУ',
+        ua: 'ДОДАТИ В КОШИК'
+    },
+    'REMOVE ALL': {
+        en: 'REMOVE ALL',
+        ru: 'УДАЛИТЬ ВСЕ',
+        ua: 'ВИДАЛИТИ ВСЕ'
+    },
+    'ORDER': {
+        en: 'ORDER',
+        ru: 'ОФОРМИТЬ ЗАКАЗ',
+        ua: 'ОФОРМИТИ ЗАМОВЛЕННЯ'
+    },
+    'IN CART': {
+        en: 'IN CART',
+        ru: 'В КОРЗИНЕ',
+        ua: 'В КОШИКУ'
+    },
+    'TOTAL SUM': {
+        en: 'TOTAL SUM',
+        ru: 'ИТОГО',
+        ua: 'РАЗОМ'
+    },
+    'item': {
+        en: 'item',
+        ru: 'шт.',
+        ua: 'шт.'
+    },
+    'year': {
+        en: 'year',
+        ru: 'л.',
+        ua: 'р.'
+    },
+    'hrn': {
+        en: 'hrn.',
+        ru: 'грн.',
+        ua: 'грн.'
     },
 };
 

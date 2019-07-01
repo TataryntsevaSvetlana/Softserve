@@ -1,18 +1,18 @@
 import { Cat, Dog, Fish, Bird } from './index.js';
 
-function petFactory(pet, observer) {
+function petFactory(pet) {
     switch (pet.type) {
         case 'cat': {
-            return new Cat(pet, observer);
+            return new Cat(pet);
         }
         case 'dog': {
-            return new Dog(pet, observer);
+            return new Dog(pet);
         }
         case 'fish': {
-            return new Fish(pet, observer);
+            return new Fish(pet);
         }
         case 'bird': {
-            return new Bird(pet, observer);
+            return new Bird(pet);
         }
 
         default: {

@@ -2,8 +2,8 @@ import { Mammal } from './mammal.js'
 import {translations} from "../json/index.js";
 
 class Cat extends Mammal {
-    constructor(pet, observer) {
-        super(pet, observer);
+    constructor(pet) {
+        super(pet);
         this.lopiness = pet.lopiness;
     }
 

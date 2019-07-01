@@ -1,26 +1,47 @@
-import { PetView } from "./pet-view.js";
+import { translations } from "../json/index.js";
 
 class PetListView {
-    constructor(petsModels, observer) {
-        this.petsModels = petsModels;
-        this.observer = observer;
-
+    constructor(petsCollection) {
+        this.petsCollection = petsCollection;
+        this.el = document.querySelector('.cards');
         this.init();
     }
 
     init() {
-        this.observer.subscribe(this.update.bind(this));
-        this.el = document.querySelector('#cards');
-        this.petViews = this.petsModels.map(petModel => new PetView(petModel, this.el));
-    }
+        this.el.addEventListener('click', (e) => {
+            if (e.target.classList.contains('buttonMore')) {
+                const id = e.target.dataset.id;
+                const petModel = this.petsCollection.getPetById(id);
 
-    update() {
-        this.petViews.forEach(petViews => petViews.update());
+                this.showPopUp(petModel);
+            }
+        })
     }
 
     render() {
-        this.petViews.forEach(petViews => petViews.render());
+        const petsModels = this.petsCollection.getPetsModels()
+            .filter(pet => pet.display !== false);
+        this.el.innerHTML = petsModels.reduce((acc, petModel) => acc + this.renderOneCard(petModel), '');
     }
+
+    renderOneCard(petModel){
+        let classList = "card";
+        if (petModel.quantity === 0) {
+            classList += ' inactiveCard'
+        }
+
+        return `
+            <div class="${classList}">
+                <div>
+                    <img src=${petModel.url} class="img imgCard">
+                </div>
+                <h6 class="textCard">${translations.type[this.lang]}: ${translations[petModel.type][this.lang]}</h6>
+                <h6 class="textCard">${translations.breed[this.lang]}: ${translations[petModel.breed][this.lang]}</h6>
+                <h6 class="textCard">${translations.price[this.lang]}: ${petModel.price} ${translations.hrn[this.lang]}</h6>
+                <button data-id=${petModel.id} class="button buttonMore">${translations.MORE[this.lang]}</button>
+            </div>`
+    };
 }
 
 export { PetListView };
+

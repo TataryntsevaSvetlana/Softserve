@@ -1,7 +1,7 @@
 const pets = [
     {
         "id": 1,
-        "name": "Siamese",
+        "breed": "Siamese",
         "price": 100,
         "quantity": 5,
         "age": 3,
@@ -14,28 +14,30 @@ const pets = [
         "dockedTail": false,
         "shortPaws": false,
         "lopiness": false,
-        "url": "http://funkot.ru/wp-content/uploads/2016/05/siamskii-kot-colorpoint.jpg"
+        "url": "img/1_siamskii-kot-colorpoint.jpg",
+        "quantityPetsInCart": 0
     },
     {
         "id": 2,
-        "name": "Siamese",
-        "price": 150,
+        "breed": "Bengalsky",
+        "price": 350,
         "quantity": 2,
         "age": 3,
         "color": "multicolored",
         "rapacity": true,
         "type": "cat",
         "gender": "female",
-        "fur": "middle",
+        "fur": "short",
         "pedigree": true,
         "dockedTail": false,
         "shortPaws": false,
         "lopiness": false,
-        "url": "https://cat.mau.ru/sia/history.jpg"
+        "url": "img/2_bengalsky_cat.jpg",
+        "quantityPetsInCart": 0
     },
     {
         "id": 3,
-        "name": "Scottish",
+        "breed": "Scottish",
         "price": 200,
         "quantity": 2,
         "age": 1,
@@ -48,11 +50,12 @@ const pets = [
         "dockedTail": false,
         "shortPaws": false,
         "lopiness": true,
-        "url": "http://pipcat.ru/wp-content/uploads/2016/12/4e56b2dfabd82385277f7c1b8f8e72e9.jpg"
+        "url": "img/3_scottish_cat.jpg",
+        "quantityPetsInCart": 0
     },
     {
         "id": 4,
-        "name": "Persian",
+        "breed": "Persian",
         "price": 300,
         "quantity": 1,
         "age": 2,
@@ -65,11 +68,12 @@ const pets = [
         "dockedTail": false,
         "shortPaws": false,
         "lopiness": false,
-        "url": "http://lemiki.ru/wp-content/uploads/2017/04/image3.jpeg"
+        "url": "img/4_persidsky_cat.jpeg",
+        "quantityPetsInCart": 0
     },
     {
         "id": 5,
-        "name": "Sphinx",
+        "breed": "Sphinx",
         "price": 400,
         "quantity": 3,
         "age": 1,
@@ -82,28 +86,12 @@ const pets = [
         "dockedTail": false,
         "shortPaws": false,
         "lopiness": false,
-        "url": "https://petstory.ru/resize/800x800x80/upload/images/articles/breeds/canadian-sphynx/canadian-sphynx_3.jpg"
-    },
-    {
-        "id": 6,
-        "name": "Sphinx",
-        "price": 500,
-        "quantity": 3,
-        "age": 1,
-        "color": "body",
-        "rapacity": true,
-        "type": "cat",
-        "gender": "female",
-        "fur": "bald",
-        "pedigree": true,
-        "dockedTail": false,
-        "shortPaws": false,
-        "lopiness": false,
-        "url": "http://catfur.ru/uploads/posts/2014-06/1403251057_1.jpg"
+        "url": "img/5_canadian-sphynx_3.jpg",
+        "quantityPetsInCart": 0
     },
     {
         "id": 7,
-        "name": "Munchkin",
+        "breed": "Munchkin",
         "price": 500,
         "quantity": 3,
         "age": 1,
@@ -116,15 +104,16 @@ const pets = [
         "dockedTail": false,
         "shortPaws": true,
         "lopiness": false,
-        "url": "http://pipcat.ru/wp-content/uploads/2016/09/koshka_manchkin_3_23192416.jpg"
+        "url": "img/7_koshka_manchkin.jpg",
+        "quantityPetsInCart": 0
     },
     {
         "id": 8,
-        "name": "Shepherd",
+        "breed": "Shepherd",
         "price": 250,
         "quantity": 1,
         "age": 2,
-        "color": "black",
+        "color": "ginger",
         "rapacity": true,
         "type": "dog",
         "gender": "female",
@@ -133,11 +122,12 @@ const pets = [
         "dockedTail": false,
         "shortPaws": false,
         "specialization": "security",
-        "url": "https://petsi.net/images/dogbreed/big/10.jpg"
+        "url": "img/8_ovcharka.jpg",
+        "quantityPetsInCart": 0
     },
     {
         "id": 9,
-        "name": "Shepherd",
+        "breed": "Shepherd",
         "price": 250,
         "quantity": 1,
         "age": 2,
@@ -150,11 +140,12 @@ const pets = [
         "dockedTail": false,
         "shortPaws": false,
         "specialization": "security",
-        "url": "https://vignette.wikia.nocookie.net/doge/images/5/53/%D0%9D%D0%B5%D0%BC%D0%B5%D1%86%D0%BA%D0%B0%D1%8F_%D0%BE%D0%B2%D1%87%D0%B0%D1%80%D0%BA%D0%B0.jpg/revision/latest?cb=20180325231507&path-prefix=ru"
+        "url": "img/9_ovchara.jpg",
+        "quantityPetsInCart": 0
     },
     {
         "id": 10,
-        "name": "Alabai",
+        "breed": "Alabai",
         "price": 500,
         "quantity": 1,
         "age": 2,
@@ -167,11 +158,12 @@ const pets = [
         "dockedTail": true,
         "shortPaws": false,
         "specialization": "security",
-        "url": "https://opt-1031816.ssl.1c-bitrix-cdn.ru/upload/resize_cache/iblock/e9b/750_400_1/sredneaziatskaja_ovcharka.jpg?1528236061179721"
+        "url": "img/10_sredneaziatskaja_ovcharka.jpg",
+        "quantityPetsInCart": 0
     },
     {
         "id": 11,
-        "name": "Dachshund",
+        "breed": "Dachshund",
         "price": 200,
         "quantity": 3,
         "age": 1,
@@ -184,11 +176,12 @@ const pets = [
         "dockedTail": false,
         "shortPaws": true,
         "specialization": "hunting",
-        "url": "https://www.royal-canin.ru/upload/iblock/f09/taksa.jpg"
+        "url": "img/11_taksa.jpg",
+        "quantityPetsInCart": 0
     },
     {
         "id": 12,
-        "name": "Dachshund",
+        "breed": "Dachshund",
         "price": 300,
         "quantity": 5,
         "age": 1,
@@ -201,11 +194,12 @@ const pets = [
         "dockedTail": false,
         "shortPaws": true,
         "specialization": "hunting",
-        "url": "https://avatars.mds.yandex.net/get-pdb/1368870/f16f8e50-ef06-4c66-90ad-f1b3cef559cf/s1200"
+        "url": "img/12_taksa.webp",
+        "quantityPetsInCart": 0
     },
     {
         "id": 13,
-        "name": "Сhihuahua",
+        "breed": "Сhihuahua",
         "price": 300,
         "quantity": 1,
         "age": 2,
@@ -218,11 +212,12 @@ const pets = [
         "dockedTail": false,
         "shortPaws": false,
         "specialization": "decorative",
-        "url": "https://podrobnosti.ua/media/pictures/2017/6/9/thumbs/740x415/foto-iz-otkrytyh-istochnikov_rect_8698a69167e1769719db5adeb23e27bf.jpg"
+        "url": "img/13_chihyahya.jpg",
+        "quantityPetsInCart": 0
     },
     {
         "id": 14,
-        "name": "Bulldog",
+        "breed": "Bulldog",
         "price": 400,
         "quantity": 1,
         "age": 1,
@@ -235,11 +230,12 @@ const pets = [
         "dockedTail": true,
         "shortPaws": false,
         "specialization": "fighting",
-        "url": "https://moypitomets.com/sites/default/files/styles/statya/public/bulldogs-3-645mk062111.jpg?itok=0Jpz6Js8"
+        "url": "img/14_bulldogs-3-645mk062111.jpg",
+        "quantityPetsInCart": 0
     },
     {
         "id": 15,
-        "name": "Swordfish",
+        "breed": "Swordfish",
         "price": 20,
         "quantity": 10,
         "age": 1,
@@ -249,11 +245,12 @@ const pets = [
         "gender": "male",
         "freshwater": true,
         "zone": "top",
-        "url": "https://images.ua.prom.st/130634198_mechenosets-rubinovyj.jpg"
+        "url": "img/15_mechenosets-rubinovyj.jpg",
+        "quantityPetsInCart": 0
     },
     {
         "id": 16,
-        "name": "Swordfish",
+        "breed": "Swordfish",
         "price": 30,
         "quantity": 15,
         "age": 1,
@@ -263,11 +260,12 @@ const pets = [
         "gender": "female",
         "freshwater": true,
         "zone": "top",
-        "url": "http://s3.fotokto.ru/photo/full/561/5614700.jpg"
+        "url": "img/16_mechenosec.jpg",
+        "quantityPetsInCart": 0
     },
     {
         "id": 17,
-        "name": "Catfish",
+        "breed": "Catfish",
         "price": 50,
         "quantity": 1,
         "age": 3,
@@ -277,11 +275,12 @@ const pets = [
         "gender": "female",
         "freshwater": true,
         "zone": "bottom",
-        "url": "https://rybki.guru/wp-content/uploads/2018/07/ancistrus_-min.jpg"
+        "url": "img/17_ancistrus_-min.jpg",
+        "quantityPetsInCart": 0
     },
     {
         "id": 18,
-        "name": "Gourami",
+        "breed": "Gourami",
         "price": 100,
         "quantity": 3,
         "age": 2,
@@ -291,11 +290,12 @@ const pets = [
         "gender": "female",
         "freshwater": true,
         "zone": "top",
-        "url": "http://voboze.ru/upload/000/u1/d7/cb/gurami-mramornye-v-akvariume-soderzhanie-sovmestimost-chem-kor.jpg"
+        "url": "img/18_gurami-mramornye-v-akvariume-soderzhanie-sovmestimost-chem-kor.jpg",
+        "quantityPetsInCart": 0
     },
     {
         "id": 19,
-        "name": "Gourami",
+        "breed": "Gourami",
         "price": 100,
         "quantity": 3,
         "age": 2,
@@ -305,11 +305,12 @@ const pets = [
         "gender": "female",
         "freshwater": true,
         "zone": "top",
-        "url": "https://pets2.me/media/res/4/1/4/414.oqt8to.620.jpg"
+        "url": "img/19_gurami.jpg",
+        "quantityPetsInCart": 0
     },
     {
         "id": 20,
-        "name": "Amphiprion",
+        "breed": "Amphiprion",
         "price": 500,
         "quantity": 1,
         "age": 1,
@@ -319,11 +320,12 @@ const pets = [
         "gender": "female",
         "freshwater": false,
         "zone": "top",
-        "url": "https://images.ru.prom.st/458392294_w1493_h430_amfiprion-otsellyaris-amphiprion.jpg"
+        "url": "img/20_amphiprion.jpg",
+        "quantityPetsInCart": 0
     },
     {
         "id": 21,
-        "name": "Zebrasoma",
+        "breed": "Zebrasoma",
         "price": 500,
         "quantity": 1,
         "age": 1,
@@ -333,11 +335,12 @@ const pets = [
         "gender": "female",
         "freshwater": false,
         "zone": "top",
-        "url": "http://aquamir-za-steklom.ru/wp-content/uploads/2016/09/Zebrasoma-flavescens.jpg"
+        "url": "img/21_Zebrasoma-flavescens.jpg",
+        "quantityPetsInCart": 0
     },
     {
         "id": 22,
-        "name": "Agapornis",
+        "breed": "Agapornis",
         "price": 50,
         "quantity": 7,
         "age": 1,
@@ -347,11 +350,12 @@ const pets = [
         "gender": "female",
         "canfly": true,
         "canSpeak": false,
-        "url": "https://img.superzoo.cz/img/school_article/727.jpg"
+        "url": "img/22_parrot.jpg",
+        "quantityPetsInCart": 0
     },
     {
         "id": 23,
-        "name": "Agapornis",
+        "breed": "Agapornis",
         "price": 100,
         "quantity": 3,
         "age": 1,
@@ -361,11 +365,12 @@ const pets = [
         "gender": "female",
         "canfly": true,
         "canSpeak": false,
-        "url": "https://www.joelsartore.com/assets/stock/BIR068/BIR068-00384-700x467.jpg"
+        "url": "img/23_parrot.jpg",
+        "quantityPetsInCart": 0
     },
     {
         "id": 24,
-        "name": "Cockatoo",
+        "breed": "Cockatoo",
         "price": 500,
         "quantity": 1,
         "age": 1,
@@ -375,11 +380,12 @@ const pets = [
         "gender": "male",
         "canfly": true,
         "canSpeak": true,
-        "url": "https://www.zoospravka.ru/Bird/images/cacatua_sulphurea.jpg"
+        "url": "img/24_kakady_2.jpeg",
+        "quantityPetsInCart": 0
     },
     {
         "id": 25,
-        "name": "Melopsittacus",
+        "breed": "Melopsittacus",
         "price": 100,
         "quantity": 1,
         "age": 1,
@@ -389,7 +395,8 @@ const pets = [
         "gender": "female",
         "canfly": true,
         "canSpeak": false,
-        "url": "https://www.krasnouhie.ru/wp-content/uploads/2016/12/456.jpg"
+        "url": "img/25_parrot.jpg",
+        "quantityPetsInCart": 0
     }
 ];
 
