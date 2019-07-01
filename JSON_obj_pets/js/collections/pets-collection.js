@@ -1,5 +1,5 @@
 import { pets } from '../json/index.js';
-import { petFactory } from "../models";
+import { petFactory } from "../models/index.js";
 
 
 class PetsCollection {

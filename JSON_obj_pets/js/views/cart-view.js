@@ -1,4 +1,4 @@
-import {translations} from "../json";
+import {translations} from "../json/index.js";
 
 class CartView {
     constructor(petCollection) {

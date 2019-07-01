@@ -1,4 +1,3 @@
-import { translations, pets } from '../json/index.js';
 
 class Pet {
     constructor(pet) {

@@ -1,4 +1,4 @@
-import {translations} from "../json";
+import {translations} from "../json/index.js";
 
 class FilterView {
     constructor() {
@@ -37,19 +37,19 @@ class FilterView {
     render() {
         this.el.innerHTML = `
             <label>
-                cat
+               ${translations.cat[this.lang]}
                 <input checked class="cat" type="checkbox" name="cat">
             </label>
                 <label>
-                dog
+                 ${translations.dog[this.lang]}
                 <input checked class="dog" type="checkbox" name="dog">
             </label>
                 <label>
-                 fish
+                 ${translations.fish[this.lang]}
                 <input checked class="fish" type="checkbox" name="fish">
             </label>
                 <label>
-                 bird
+                  ${translations.bird[this.lang]}
                 <input checked class="bird" type="checkbox" name="bird">
             </label>
         `;

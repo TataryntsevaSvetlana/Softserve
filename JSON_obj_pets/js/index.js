@@ -41,6 +41,7 @@ class Controller {
         this.translatorDropDownView.render();
 
         this.filterView = new FilterView();
+        this.filterView.lang = initialLang;
         this.filterView.render();
         this.filterView.filterCollection = this.filterCollection.bind(this);
 
@@ -48,7 +49,7 @@ class Controller {
         this.checkoutView.lang = initialLang;
         this.cartView.lang  = initialLang;
         this.popUpView.lang = initialLang;
-        this.filterView.lang = initialLang;
+
     }
 
     showPopUp(petModel) {
@@ -95,6 +96,7 @@ class Controller {
         this.filterView.lang = lang;
 
         this.petListView.render();
+        this.filterView.render();
     }
 }
 
