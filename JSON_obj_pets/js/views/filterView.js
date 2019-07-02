@@ -38,21 +38,25 @@ class FilterView {
         this.el.innerHTML = `
             <label>
                ${translations.cat[this.lang]}
-                <input checked class="cat" type="checkbox" name="cat">
+                <input class="cat" type="checkbox" name="cat">
             </label>
                 <label>
                  ${translations.dog[this.lang]}
-                <input checked class="dog" type="checkbox" name="dog">
+                <input class="dog" type="checkbox" name="dog">
             </label>
                 <label>
                  ${translations.fish[this.lang]}
-                <input checked class="fish" type="checkbox" name="fish">
+                <input class="fish" type="checkbox" name="fish">
             </label>
                 <label>
                   ${translations.bird[this.lang]}
-                <input checked class="bird" type="checkbox" name="bird">
+                <input class="bird" type="checkbox" name="bird">
             </label>
         `;
+
+        this.filters.forEach(item => {
+            this.el.querySelector(`[name=${item}]`).checked = true;
+        });
 
         document.querySelector('.wrapper').classList.add('hidden');
     }

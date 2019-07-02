@@ -8,9 +8,9 @@ class Fish extends Pet {
         this.zone = pet.zone;
     }
 
-    getSpacialInfo() {
-        return `${translations.freshwater[this.lang]}: ${translations[this.freshwater][this.lang]}, ${translations.zone[this.lang]}: ${translations[this.zone][this.lang]}`
-    }
+    // getSpacialInfo() {
+    //     return `${translations.freshwater[this.lang]}: ${translations[this.freshwater][this.lang]}, ${translations.zone[this.lang]}: ${translations[this.zone][this.lang]}`
+    // }
 }
 
 export { Fish };

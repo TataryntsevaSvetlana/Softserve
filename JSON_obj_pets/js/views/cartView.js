@@ -27,6 +27,10 @@ class CartView {
             if (e.target.classList.contains('buttonOrder')) {
                 this.showOrderForm();
             }
+
+            if (e.target.classList.contains('buttonDeleteAll')) {
+                this.removeAllFromCart();
+            }
         });
 
         document.querySelector('.wrapper').addEventListener('click', () => this.closeCart())
@@ -60,6 +64,7 @@ class CartView {
             <div class="petTotalInCart">
                 <p class="textParagraph">${translations['IN CART'][this.lang]}: ${this.petCollection.getQuantityInCart()} ${translations.item[this.lang]}</p>
                 <p class="textParagraph">${translations['TOTAL SUM'][this.lang]}: ${this.petCollection.getTotalPrice()} ${translations.hrn[this.lang]}</p>
+                <button class="button buttonDeleteAll">${translations['DELETE ALL'][this.lang]}</button>
             </div>
         `;
     }

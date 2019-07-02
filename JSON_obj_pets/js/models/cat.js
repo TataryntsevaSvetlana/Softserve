@@ -7,9 +7,9 @@ class Cat extends Mammal {
         this.lopiness = pet.lopiness;
     }
 
-    getSpacialInfo() {
-        return `${translations.lopiness[this.lang]}: ${translations[this.lopiness][this.lang]}`
-    }
+    // getSpacialInfo() {
+    //     return `${translations.lopiness[this.lang]}: ${translations[this.lopiness][this.lang]}`
+    // }
 }
 
 export { Cat };

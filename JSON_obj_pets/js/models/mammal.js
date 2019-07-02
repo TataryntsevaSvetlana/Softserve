@@ -10,12 +10,12 @@ class Mammal extends Pet {
         this.shortPaws = pet.shortPaws;
     }
 
-    getSpacialInfo() {
-        return `${translations.fur[this.lang]}: ${translations[this.fur][this.lang]},
-        ${translations.pedigree[this.lang]}: ${translations[this.pedigree][this.lang]},
-        ${translations.dockedTail[this.lang]}: ${translations[this.dockedTail][this.lang]},
-        ${translations.shortPaws[this.lang]}: ${translations[this.shortPaws][this.lang]}`
-    }
+    // getSpacialInfo() {
+    //     return `${translations.fur[this.lang]}: ${translations[this.fur][this.lang]},
+    //     ${translations.pedigree[this.lang]}: ${translations[this.pedigree][this.lang]},
+    //     ${translations.dockedTail[this.lang]}: ${translations[this.dockedTail][this.lang]},
+    //     ${translations.shortPaws[this.lang]}: ${translations[this.shortPaws][this.lang]}`
+    // }
 }
 
 export { Mammal };

@@ -3,15 +3,14 @@ import { petFactory } from "../models/index.js";
 
 
 class PetsCollection {
-
     fetchData() {
-        let petsFromServer = JSON.parse(localStorage.getItem('pets'));
-        if (!petsFromServer) {
+        let loadedPets = JSON.parse(localStorage.getItem('pets'));
+        if (!loadedPets) {
             localStorage.setItem('pets', JSON.stringify(pets));
-            petsFromServer = pets;
+            loadedPets = pets;
         }
 
-        this.petsModels = petsFromServer.map(pet => petFactory(pet));
+        this.petsModels = loadedPets.map(pet => petFactory(pet));
     }
 
     getPetsModels() {
@@ -34,12 +33,21 @@ class PetsCollection {
         return this.petsModels.reduce((acc, pet) => acc + pet.quantityPetsInCart, 0);
     }
 
-    placeOrder() {
+    checkout() {
         this.petsModels.forEach(pet => {
             pet.quantityPetsInCart = 0;
         });
-    }
 
+        localStorage.setItem('pets', JSON.stringify(this.petsModels));
+    }
+    removeAllFromCart() {
+        this.petsModels.forEach(pet => {
+            pet.quantity = pet.quantity + pet.quantityPetsInCart;
+            pet.quantityPetsInCart = 0;
+        });
+
+        localStorage.setItem('pets', JSON.stringify(this.petsModels));
+    }
     filterPets(types) {
         this.petsModels.forEach(pet => {
            if (!types.includes(pet.type)) {

@@ -7,9 +7,9 @@ class Dog extends Mammal {
         this.specialization = pet.specialization;
     }
 
-    getSpacialInfo() {
-        return `${translations.specialization[this.lang]}: ${translations[this.specialization][this.lang]}`
-    }
+    // getSpacialInfo() {
+    //     return `${translations.specialization[this.lang]}: ${translations[this.specialization][this.lang]}`
+    // }
 }
 
 export { Dog }

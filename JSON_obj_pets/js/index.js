@@ -1,12 +1,14 @@
 
-import {PetListView} from './views/pet-list-view.js';
-import {PetsCollection} from './collections/pets-collection.js';
-import {PopUpView} from './views/pop-up-view.js';
-import {TranslatorDropDownView} from "./views/translation-dropdown-view.js";
-import {CheckoutView} from "./views/checkout-view.js";
-import {CartView} from "./views/cart-view.js";
-import {FilterView} from "./views/filter-view.js";
 
+import {PetsCollection} from './collections/petsCollection.js';
+
+import {PetListView} from './views/petListView.js';
+import {PopUpView} from './views/popUpView.js';
+import {TranslatorDropDownView} from "./views/translationDropdownView.js";
+import {CheckoutView} from "./views/checkoutView.js";
+import {CartView} from "./views/cartView.js";
+import {FilterView} from "./views/filterView.js";
+// import {QuantityItemInCartView} from "./views/quantityItemInCartView.js";
 
 
 class Controller {
@@ -28,13 +30,14 @@ class Controller {
         this.cartView.addToCart = this.addToCart.bind(this);
         this.cartView.removeFromCart = this.removeFromCart.bind(this);
         this.cartView.showOrderForm = this.showOrderForm.bind(this);
-
-        this.checkoutView = new CheckoutView(this.petsCollection);
-        this.checkoutView.showOrderForm = this.showOrderForm.bind(this);
-        this.checkoutView.placeOrder = this.placeOrder.bind(this);
+        this.cartView.removeAllFromCart = this.removeAllFromCart.bind(this);
 
         const buttonCart = document.querySelector('.buttonCart');
         buttonCart.addEventListener('click', () => this.cartView.render());
+
+        this.checkoutView = new CheckoutView(this.petsCollection);
+        this.checkoutView.showOrderForm = this.showOrderForm.bind(this);
+        this.checkoutView.checkout = this.checkout.bind(this);
 
         this.translatorDropDownView = new TranslatorDropDownView();
         this.translatorDropDownView.changeLang = this.changeLang.bind(this);
@@ -45,10 +48,12 @@ class Controller {
         this.filterView.render();
         this.filterView.filterCollection = this.filterCollection.bind(this);
 
-
         this.checkoutView.lang = initialLang;
         this.cartView.lang  = initialLang;
         this.popUpView.lang = initialLang;
+
+        // this.quantityItemInCartView = new QuantityItemInCartView(this.petsCollection);
+        // this.quantityItemInCartView.showQuantityItemInCart = this.showQuantityItemInCart.bind(this);
 
     }
 
@@ -66,10 +71,17 @@ class Controller {
         this.cartView.render(petModel);
     }
 
+    removeAllFromCart() {
+        this.petsCollection.removeAllFromCart();
+        this.cartView.render();
+        this.petListView.render();
+    }
+
     handleAdd(petId) {
         const petModel = this.petsCollection.getPetById(petId);
 
         petModel.addToCart();
+        this.petListView.render();
         this.popUpView.renderPopUp(petModel);
     }
 
@@ -78,8 +90,8 @@ class Controller {
         this.checkoutView.render();
     }
 
-    placeOrder() {
-        this.petsCollection.placeOrder();
+    checkout() {
+        this.petsCollection.checkout();
         this.petListView.render();
     }
 
@@ -98,10 +110,14 @@ class Controller {
         this.petListView.render();
         this.filterView.render();
     }
+
+    // showQuantityItemInCart() {
+    //     this.quantityItemInCartView.renderQuantityItemInCartView();
+    // }
 }
 
 
-document.addEventListener('DOMContentLoaded', () => { // при загрузке html документа вызывается сздание контроллера и его инициализация
+document.addEventListener('DOMContentLoaded', () => {
     const controller = new Controller();
     controller.init();
 });

@@ -12,7 +12,6 @@ class Pet {
         this.gender = pet.gender;
         this.url = pet.url;
         this.quantityPetsInCart = pet.quantityPetsInCart;
-
    }
 
     addToCart() {
@@ -20,7 +19,8 @@ class Pet {
             this.quantityPetsInCart += 1;
             this.quantity -= 1;
         }
-        // localStorage.setItem('pets', JSON.stringify(pets));
+
+        this.saveToStorage();
     }
 
     removeFromCart() {
@@ -28,12 +28,29 @@ class Pet {
             this.quantityPetsInCart -= 1;
             this.quantity += 1;
         }
-        // localStorage.setItem('pets', JSON.stringify(pets));
+
+        this.saveToStorage();
     }
 
+    removeAllFromCart() {
+        if (this.quantityPetsInCart > 0) {
+            this.quantityPetsInCart = 0;
+        }
 
-//
+        this.saveToStorage();
+    }
 
+    saveToStorage() {
+        const pets = JSON.parse(localStorage.getItem('pets')).map(pet => {
+            if (pet.id === this.id) {
+                return this;
+            }
+
+            return pet;
+        });
+
+        localStorage.setItem('pets', JSON.stringify(pets));
+    }
 }
 
 export { Pet };

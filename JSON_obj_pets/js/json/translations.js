@@ -381,6 +381,11 @@ const translations = {
         ru: 'ИТОГО',
         ua: 'РАЗОМ'
     },
+    'DELETE ALL': {
+        en: 'DELETE ALL',
+        ru: 'ОЧИСТИТЬ КОРЗИНУ',
+        ua: 'ОЧИСТИТИ КОРЗИНУ'
+    },
     'item': {
         en: 'item',
         ru: 'шт.',

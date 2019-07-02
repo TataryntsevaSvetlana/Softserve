@@ -12,7 +12,7 @@ class CheckoutView {
         this.el.addEventListener('click', (e) => {
             if (e.target.classList.contains('buttonCheckout')) {
                 e.preventDefault();
-                this.placeOrder();
+                this.checkout();
                 this.closePopUp();
             }
         });

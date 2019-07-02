@@ -1,5 +1,5 @@
 export * from './pet.js';
-export * from './pet-factory.js';
+export * from './petFactory.js';
 export * from './cat.js';
 export * from './dog.js';
 export * from './fish.js';
