@@ -14,6 +14,7 @@ class CheckoutView {
                 e.preventDefault();
                 this.checkout();
                 this.closePopUp();
+                
             }
         });
 
