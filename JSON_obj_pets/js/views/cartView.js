@@ -3,19 +3,19 @@ import {translations} from "../json/index.js";
 class CartView {
     constructor(petCollection) {
         this.petCollection = petCollection;
-        this.el =  document.querySelector('.popUpCart');
 
         this.init();
     }
 
     init() {
+        this.el =  document.querySelector('.popUpCart');
         this.el.addEventListener('click', (e) => {
             const id = e.target.dataset.id;
 
             if (e.target.classList.contains('buttonAddItem')) {
                 const pet = this.petCollection.getPetById(id);
-
                 this.addToCart(pet);
+
             }
 
             if (e.target.classList.contains('buttonRemoveItem')) {
@@ -36,6 +36,8 @@ class CartView {
         document.querySelector('.wrapper').addEventListener('click', () => this.closeCart())
     }
 
+
+
     closeCart() {
         this.el.classList.add('hidden');
         document.querySelector('.wrapper').classList.add('hidden');
@@ -53,7 +55,9 @@ class CartView {
 
     renderPlaceOrder() {
         if (this.petCollection.getTotalPrice() > 0) {
-            return `<button class="button buttonOrder">${translations['ORDER'][this.lang]}</button>`;
+            return `<div class="buttonBlock">
+                        <button class="button buttonOrder">${translations['ORDER'][this.lang]}</button>
+                    </div>`;
         }
 
         return ''

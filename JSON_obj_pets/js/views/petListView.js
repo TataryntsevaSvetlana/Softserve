@@ -32,8 +32,8 @@ class PetListView {
 
         return `
             <div class="${classList}">
-                <div>
-                    <img src=${petModel.url} class="img imgCard">
+                <div class="imgCard">
+                    <img src=${petModel.url} class="img">
                 </div>
                 <h6 class="textCard">${translations.type[this.lang]}: ${translations[petModel.type][this.lang]}</h6>
                 <h6 class="textCard">${translations.breed[this.lang]}: ${translations[petModel.breed][this.lang]}</h6>

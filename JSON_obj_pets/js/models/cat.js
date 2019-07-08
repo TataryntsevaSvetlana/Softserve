@@ -1,15 +1,21 @@
 import { Mammal } from './mammal.js'
-import {translations} from "../json/index.js";
 
 class Cat extends Mammal {
     constructor(pet) {
         super(pet);
-        this.lopiness = pet.lopiness;
+        this.hangingEars = pet.hangingEars;
     }
 
-    // getSpacialInfo() {
-    //     return `${translations.lopiness[this.lang]}: ${translations[this.lopiness][this.lang]}`
-    // }
+    getSpacialInfo() {
+        return {
+            specialization: this.specialization,
+            hangingEars:  this.hangingEars,
+            fur: this.fur,
+            pedigree: this.pedigree,
+            dockedTail:  this.dockedTail,
+            shortPaws:  this.shortPaws,
+        };
+    }
 }
 
 export { Cat };

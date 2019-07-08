@@ -21,6 +21,21 @@ class PetsCollection {
         return this.petsModels.find(pet => pet.id === Number(id));
     }
 
+    getPetsByBreed(categories) {
+        console.log(categories);
+        return this.petsModels.forEach(pet => {
+            const matches = categories.some(c => {
+                return pet[c.category] === c.categoryValue;
+            });
+
+            if (matches) {
+                pet.display = true;
+            } else {
+                pet.display = false;
+            }
+        });
+    }
+
     getPetsInCart() {
         return this.petsModels.filter(pet => pet.quantityPetsInCart > 0);
     }
@@ -48,14 +63,27 @@ class PetsCollection {
 
         localStorage.setItem('pets', JSON.stringify(this.petsModels));
     }
-    filterPets(types) {
-        this.petsModels.forEach(pet => {
-           if (!types.includes(pet.type)) {
-               pet.display = false;
-           } else {
-               pet.display = true;
-           }
-        });
+
+    filterPets(categories) {
+
+        if (categories.length === 0) {
+            this.petsModels.forEach(pet => {
+                pet.display = true;
+            });
+        } else {
+
+            this.petsModels.forEach(pet => {
+                const matches = categories.some(c => {
+                    return pet[c.category] === c.categoryValue;
+                });
+
+                if (matches) {
+                    pet.display = true;
+                } else {
+                    pet.display = false;
+                }
+            });
+        }
     }
 
 }

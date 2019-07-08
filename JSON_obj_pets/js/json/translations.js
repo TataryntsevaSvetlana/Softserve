@@ -1,4 +1,9 @@
 const translations = {
+    details: {
+        en: 'details',
+        ru: 'подробно',
+        ua: 'детально'
+    },
     breed: {
         en: 'breed',
         ru: 'порода',
@@ -6,8 +11,8 @@ const translations = {
     },
     gender: {
         en: 'gender',
-        ru: 'женская',
-        ua: 'жіноча'
+        ru: 'пол',
+        ua: 'стать'
     },
     Siamese: {
         en: 'Siamese',
@@ -105,12 +110,12 @@ const translations = {
         ua: 'Хвилястий папуга'
     },
     true: {
-        en: 'true',
+        en: 'yes',
         ru: 'да',
         ua: 'так'
     },
     false: {
-        en: 'false',
+        en: 'no',
         ru: 'нет',
         ua: 'ні'
     },
@@ -167,8 +172,8 @@ const translations = {
     },
     bald: {
         en: 'bald',
-        ru: 'лысая',
-        ua: 'лиса'
+        ru: 'без шерсти',
+        ua: 'без шерсті'
     },
     specialization: {
         en: 'specialization',
@@ -215,35 +220,10 @@ const translations = {
         ru: 'дно',
         ua: 'дно'
     },
-    canfly: {
-        en: 'canfly',
-        ru: 'может летать',
-        ua: 'може літати'
-    },
-    canSpeak: {
-        en: 'canSpeak',
-        ru: 'обучаема говорению',
-        ua: 'може навчитися вимовляти слова'
-    },
     pedigree: {
         en: 'pedigree',
         ru: 'родословная',
         ua: 'родовід'
-    },
-    dockedTail: {
-        en: 'dockedTail',
-        ru: 'купированный хвост',
-        ua: 'купований хвіст'
-    },
-    shortPaws: {
-        en: 'shortPaws',
-        ru: 'короткие лапы',
-        ua: 'короткі лапи'
-    },
-    lopiness: {
-        en: 'lopiness',
-        ru: 'вислоухость',
-        ua: 'вислоухість'
     },
     color: {
         en: 'color',
@@ -400,6 +380,31 @@ const translations = {
         en: 'hrn.',
         ru: 'грн.',
         ua: 'грн.'
+    },
+    'dockedTail': {
+        en: 'docked tail',
+        ru: 'купированный хвост',
+        ua: 'купований хвіст'
+    },
+    'shortPaws': {
+        en: 'short paws',
+        ru: 'короткие лапы',
+        ua: 'короткі лапи'
+    },
+    'hangingEars': {
+        en: 'hanging ears',
+        ru: 'вислоухость',
+        ua: 'вислоухість'
+    },
+    'canFly': {
+        en: 'can fly',
+        ru: 'может летать',
+        ua: 'може літати'
+    },
+    'canSpeak': {
+        en: 'can speak',
+        ru: 'произносит слова',
+        ua: 'вимовляє слова'
     },
 };
 

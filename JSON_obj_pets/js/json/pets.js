@@ -13,7 +13,7 @@ const pets = [
         "pedigree": true,
         "dockedTail": false,
         "shortPaws": false,
-        "lopiness": false,
+        "hangingEars": false,
         "url": "img/1_siamskii-kot-colorpoint.jpg",
         "quantityPetsInCart": 0
     },
@@ -31,7 +31,7 @@ const pets = [
         "pedigree": true,
         "dockedTail": false,
         "shortPaws": false,
-        "lopiness": false,
+        "hangingEars": false,
         "url": "img/2_bengalsky_cat.jpg",
         "quantityPetsInCart": 0
     },
@@ -49,7 +49,7 @@ const pets = [
         "pedigree": true,
         "dockedTail": false,
         "shortPaws": false,
-        "lopiness": true,
+        "hangingEars": true,
         "url": "img/3_scottish_cat.jpg",
         "quantityPetsInCart": 0
     },
@@ -67,7 +67,7 @@ const pets = [
         "pedigree": true,
         "dockedTail": false,
         "shortPaws": false,
-        "lopiness": false,
+        "hangingEars": false,
         "url": "img/4_persidsky_cat.jpeg",
         "quantityPetsInCart": 0
     },
@@ -85,7 +85,7 @@ const pets = [
         "pedigree": true,
         "dockedTail": false,
         "shortPaws": false,
-        "lopiness": false,
+        "hangingEars": false,
         "url": "img/5_canadian-sphynx_3.jpg",
         "quantityPetsInCart": 0
     },
@@ -103,7 +103,7 @@ const pets = [
         "pedigree": true,
         "dockedTail": false,
         "shortPaws": true,
-        "lopiness": false,
+        "hangingEars": false,
         "url": "img/7_koshka_manchkin.jpg",
         "quantityPetsInCart": 0
     },
@@ -348,7 +348,7 @@ const pets = [
         "rapacity": false,
         "type": "bird",
         "gender": "female",
-        "canfly": true,
+        "canFly": true,
         "canSpeak": false,
         "url": "img/22_parrot.jpg",
         "quantityPetsInCart": 0
@@ -363,8 +363,8 @@ const pets = [
         "rapacity": false,
         "type": "bird",
         "gender": "female",
-        "canfly": true,
-        "canSpeak": false,
+        "canFly": true,
+        "caSpeak": false,
         "url": "img/23_parrot.jpg",
         "quantityPetsInCart": 0
     },
@@ -378,7 +378,7 @@ const pets = [
         "rapacity": false,
         "type": "bird",
         "gender": "male",
-        "canfly": true,
+        "canFly": true,
         "canSpeak": true,
         "url": "img/24_kakady_2.jpeg",
         "quantityPetsInCart": 0
@@ -393,7 +393,7 @@ const pets = [
         "rapacity": false,
         "type": "bird",
         "gender": "female",
-        "canfly": true,
+        "canFly": true,
         "canSpeak": false,
         "url": "img/25_parrot.jpg",
         "quantityPetsInCart": 0

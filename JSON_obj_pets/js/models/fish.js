@@ -1,5 +1,4 @@
 import { Pet } from './index.js'
-import {translations} from "../json/index.js";
 
 class Fish extends Pet {
     constructor(pet) {
@@ -8,9 +7,12 @@ class Fish extends Pet {
         this.zone = pet.zone;
     }
 
-    // getSpacialInfo() {
-    //     return `${translations.freshwater[this.lang]}: ${translations[this.freshwater][this.lang]}, ${translations.zone[this.lang]}: ${translations[this.zone][this.lang]}`
-    // }
+    getSpacialInfo() {
+        return {
+            freshwater: this.freshwater,
+            zone: this.zone,
+        };
+    }
 }
 
 export { Fish };

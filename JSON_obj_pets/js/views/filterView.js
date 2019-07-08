@@ -3,64 +3,128 @@ import {translations} from "../json/index.js";
 class FilterView {
     constructor() {
         this.el = document.querySelector('.filter');
-        this.filters = ['cat', 'dog', 'fish', 'bird'];
+
+        this.petsCategories = ['cat', 'dog', 'fish', 'bird'];
+
+        this.colorsCategories = ['red', 'ginger', 'black', 'white',
+            'blue', 'green', 'yellow', 'silver',
+            'multicolored', 'body'];
+
+        this.genderCategories = ['male', 'female'];
+        this.furCategories = ['short', 'long', 'bald'];
+
+        this.detailsCategories = ['rapacity', 'dockedTail', 'shortPaws', 'hangingEars', 'freshwater', 'canFly', 'canSpeak'];
+
+        this.categories = [
+            ...this.colorsCategories,
+            ...this.genderCategories,
+            ...this.detailsCategories,
+        ];
+
+        this.selectedFilters = [];
 
         this.init();
     }
 
     init() {
         this.el.addEventListener('click', (e) => {
-            if (e.target.classList.contains('cat')) {
-                this.handleFilter(e, 'cat');
+
+            if (e.target.classList.contains('searchButton')) {
+                this.getValueFromSearchInput(e);
             }
-            if (e.target.classList.contains('dog')) {
-                this.handleFilter(e, 'dog');
-            }
-            if (e.target.classList.contains('fish')) {
-                this.handleFilter(e, 'fish');
-            }
-            if (e.target.classList.contains('bird')) {
-                this.handleFilter(e, 'bird');
+            const category = e.target.dataset.category;
+            const categoryValue = e.target.dataset.value;
+
+            if (category && categoryValue)  {
+                if (category !== 'details') {
+                    this.filterCategories(e, category, categoryValue);
+                } else {
+                    this.filterDetailsCategories(e, categoryValue, categoryValue);
+                }
             }
         });
     }
 
-    handleFilter(e, type) {
-        if (!e.target.checked) {
-            this.filters = this.filters.filter(i => i !== type);
+    getValueFromSearchInput(e){
+        this.selectedFilters.push({  category: 'breed', categoryValue: e.target.parentElement.children[0].value });
+        this.searchBreed(this.selectedFilters);
+    }
+
+    filterCategories(e, category, categoryValue) {
+        const wasCheckedBeforeClick = e.target.children[0].checked;
+        const isCheckedAfterClick = !wasCheckedBeforeClick;
+
+        if (isCheckedAfterClick) { // в ивент таргет чект попадает состояние до клика
+            this.selectedFilters.push({ category, categoryValue });
         } else {
-            this.filters.push(type);
+            this.selectedFilters = this.selectedFilters
+                .filter(c => {
+                   return !(c.category === category && c.categoryValue === categoryValue);
+                });
         }
-        this.filterCollection(this.filters);
+
+        this.handlerFilter(this.selectedFilters);
+    }
+
+    filterDetailsCategories(e, category) {
+        const wasCheckedBeforeClick = e.target.children[0].checked;
+        const isCheckedAfterClick = !wasCheckedBeforeClick;
+
+        if (isCheckedAfterClick) { // в ивент таргет чект попадает состояние до клика
+            this.selectedFilters.push({ category, categoryValue: true });
+        } else {
+            this.selectedFilters = this.selectedFilters
+                .filter(c => {
+                    return !(c.category === category && c.categoryValue === true);
+                });
+        }
+        this.handlerFilter(this.selectedFilters);
+    }
+
+    renderCategories(categories, categoryName) {
+        return categories.reduce((acc, value) => {
+           return acc + `<label data-category="${categoryName}" data-value="${value}">
+                            <input type="checkbox"> ${translations[value][this.lang]}
+                        </label>`
+        }, '')
     }
 
     render() {
-        this.el.innerHTML = `
-            <label>
-               ${translations.cat[this.lang]}
-                <input class="cat" type="checkbox" name="cat">
-            </label>
-                <label>
-                 ${translations.dog[this.lang]}
-                <input class="dog" type="checkbox" name="dog">
-            </label>
-                <label>
-                 ${translations.fish[this.lang]}
-                <input class="fish" type="checkbox" name="fish">
-            </label>
-                <label>
-                  ${translations.bird[this.lang]}
-                <input class="bird" type="checkbox" name="bird">
-            </label>
-        `;
 
-        this.filters.forEach(item => {
-            this.el.querySelector(`[name=${item}]`).checked = true;
-        });
+        this.el.innerHTML = `
+            <div class="searchBox">
+                <input class="searchInput" type="text">  
+                <button class="button searchButton">&#128269;</button> 
+            </div>
+            <div class="categoriesBox">
+                <form action="#">
+                <fieldset>
+                    <legend>${translations.type[this.lang]}</legend>
+                    ${this.renderCategories(this.petsCategories, 'type')}       
+                </fieldset>       
+                <fieldset>
+                    <legend>${translations.color[this.lang]}</legend>
+                    ${this.renderCategories(this.colorsCategories, 'color')}                           
+                </fieldset>    
+                <fieldset>
+                    <legend>${translations.gender[this.lang]}</legend>
+                    ${this.renderCategories(this.genderCategories, 'gender')}       
+                </fieldset>
+                 <fieldset>
+                    <legend>${translations.fur[this.lang]}</legend>
+                    ${this.renderCategories(this.furCategories, 'fur')}       
+                </fieldset>
+                <fieldset>
+                    <legend>${translations.details[this.lang]}</legend>
+                      ${this.renderCategories(this.detailsCategories, 'details')}                                 
+                </fieldset>       
+                </form> 
+            </div>
+        `;
 
         document.querySelector('.wrapper').classList.add('hidden');
     }
 
 }
 
-export { FilterView };
+export {FilterView};
