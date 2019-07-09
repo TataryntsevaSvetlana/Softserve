@@ -1,39 +1,27 @@
-import { pets } from '../json/index.js';
 import { petFactory } from "../models/index.js";
 
 
 class PetsCollection {
+
     fetchData() {
-        let loadedPets = JSON.parse(localStorage.getItem('pets'));
-        if (!loadedPets) {
-            localStorage.setItem('pets', JSON.stringify(pets));
-            loadedPets = pets;
-        }
+        return fetch('js/json/pets.json')
+            .then(response => response.json())
+            .then(response => {
+                let loadedPets = JSON.parse(localStorage.getItem('pets'));
+                if (!loadedPets) {
+                    localStorage.setItem('pets', JSON.stringify(response));
+                    loadedPets = response;
+                }
 
-        this.petsModels = loadedPets.map(pet => petFactory(pet));
+                this.petsModels = loadedPets.map(pet => petFactory(pet));
+            });
     }
-
     getPetsModels() {
         return this.petsModels;
     }
 
     getPetById(id) {
         return this.petsModels.find(pet => pet.id === Number(id));
-    }
-
-    getPetsByBreed(categories) {
-        console.log(categories);
-        return this.petsModels.forEach(pet => {
-            const matches = categories.some(c => {
-                return pet[c.category] === c.categoryValue;
-            });
-
-            if (matches) {
-                pet.display = true;
-            } else {
-                pet.display = false;
-            }
-        });
     }
 
     getPetsInCart() {
@@ -65,23 +53,22 @@ class PetsCollection {
     }
 
     filterPets(categories) {
-
         if (categories.length === 0) {
             this.petsModels.forEach(pet => {
                 pet.display = true;
             });
         } else {
-
             this.petsModels.forEach(pet => {
                 const matches = categories.some(c => {
+                    if (c.category === 'breed') {
+                        const petCategory = pet[c.category].toLowerCase();
+                        const search = c.categoryValue.toLowerCase();
+                        return petCategory.includes(search);
+                    }
                     return pet[c.category] === c.categoryValue;
                 });
 
-                if (matches) {
-                    pet.display = true;
-                } else {
-                    pet.display = false;
-                }
+                pet.display = matches;
             });
         }
     }

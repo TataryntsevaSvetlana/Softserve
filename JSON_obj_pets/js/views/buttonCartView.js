@@ -1,5 +1,3 @@
-import {translations} from "../json/index.js";
-
 class ButtonCartView {
     constructor(petCollection) {
         this.petCollection = petCollection;

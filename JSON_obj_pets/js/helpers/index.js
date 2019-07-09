@@ -1,1 +1,1 @@
-export * from './observer.js';
+export * from './ChatBot.js';

@@ -3,13 +3,10 @@ import {translations} from "../json/index.js";
 class FilterView {
     constructor() {
         this.el = document.querySelector('.filter');
-
         this.petsCategories = ['cat', 'dog', 'fish', 'bird'];
-
         this.colorsCategories = ['red', 'ginger', 'black', 'white',
             'blue', 'green', 'yellow', 'silver',
             'multicolored', 'body'];
-
         this.genderCategories = ['male', 'female'];
         this.furCategories = ['short', 'long', 'bald'];
 
@@ -30,24 +27,25 @@ class FilterView {
         this.el.addEventListener('click', (e) => {
 
             if (e.target.classList.contains('searchButton')) {
-                this.getValueFromSearchInput(e);
-            }
-            const category = e.target.dataset.category;
-            const categoryValue = e.target.dataset.value;
+                this.search(e.target.parentElement.children[0].value);
+            } else {
+                const category = e.target.dataset.category;
+                const categoryValue = e.target.dataset.value;
 
-            if (category && categoryValue)  {
-                if (category !== 'details') {
-                    this.filterCategories(e, category, categoryValue);
-                } else {
-                    this.filterDetailsCategories(e, categoryValue, categoryValue);
+                if (category && categoryValue)  {
+                    if (category !== 'details') {
+                        this.filterCategories(e, category, categoryValue);
+                    } else {
+                        this.filterDetailsCategories(e, categoryValue, categoryValue);
+                    }
                 }
             }
         });
     }
 
-    getValueFromSearchInput(e){
-        this.selectedFilters.push({  category: 'breed', categoryValue: e.target.parentElement.children[0].value });
-        this.searchBreed(this.selectedFilters);
+    search(value){
+        this.selectedFilters = this.selectedFilters.filter(f => f.category !== 'breed');
+        this.handlerFilter([{category: 'breed', categoryValue: value}]);
     }
 
     filterCategories(e, category, categoryValue) {
@@ -90,7 +88,6 @@ class FilterView {
     }
 
     render() {
-
         this.el.innerHTML = `
             <div class="searchBox">
                 <input class="searchInput" type="text">  

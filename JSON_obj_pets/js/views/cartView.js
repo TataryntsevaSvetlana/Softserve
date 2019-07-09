@@ -15,7 +15,6 @@ class CartView {
             if (e.target.classList.contains('buttonAddItem')) {
                 const pet = this.petCollection.getPetById(id);
                 this.addToCart(pet);
-
             }
 
             if (e.target.classList.contains('buttonRemoveItem')) {
@@ -35,8 +34,6 @@ class CartView {
 
         document.querySelector('.wrapper').addEventListener('click', () => this.closeCart())
     }
-
-
 
     closeCart() {
         this.el.classList.add('hidden');

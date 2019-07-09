@@ -6,10 +6,6 @@ class Dog extends Mammal {
         this.specialization = pet.specialization;
     }
 
-    getCategories() {
-
-    }
-
     getSpacialInfo() {
         return {
             specialization: this.specialization,
